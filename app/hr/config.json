@@ -1,6 +1,6 @@
 {
   "_doc": "Config LP Hyundai HR (apenas). Bongo/K2500/K2700 viram LPs separadas. Perfil Frotista. Bicos Delphi (até 2022) e Bosch (2023+ Euro 6 com Arla) — 2.5 D4CB CRDi 130cv.",
-  "slug": "bico-hr",
+  "slug": "hr",
   "categoria": "bico-injetor",
   "veiculo_key": "hr",
   "veiculo": {
@@ -116,7 +116,7 @@
     "og_image": "assets/hero-static.png",
     "og_image_alt": "Hyundai HR baú branco em galpão de logística",
     "twitter_description": "Bico injetor original para Hyundai HR 2.5 D4CB CRDi (Delphi até 2022, Bosch 2023+).",
-    "canonical_path": "/bico-hr/",
+    "canonical_path": "/hr/",
     "product": {
       "name": "Bico Injetor para Hyundai HR 2.5 D4CB CRDi",
       "description": "Bico injetor original para Hyundai HR 2.5 D4CB CRDi (130cv) — Delphi (até 2022) e Bosch (2023+ Euro 6 com Arla), anos 2012-2026. Códigos OEM confirmados por consulta FIPE/Denatran.",
