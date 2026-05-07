@@ -1283,13 +1283,13 @@ footer {
 .tech-symptoms li::before {
   content: "";
   position: absolute;
-  left: 14px;
+  left: 16px;
   top: 50%;
   transform: translateY(-50%);
-  width: 16px; height: 16px;
+  width: 10px; height: 10px;
   background: var(--red);
   border-radius: 50%;
-  box-shadow: inset 0 0 0 4px #fff;
+  animation: blink-dot 1.6s ease-in-out infinite;
 }
 @media (max-width: 720px) {
   .tech-heading { font-size: 28px; }
