@@ -1,7 +1,7 @@
 import { readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
-const SITE_URL = 'https://landing-pages-armazem-diesel.vercel.app';
+const SITE_URL = 'https://www.armazemautopecas.com.br';
 const LANDING_BASE = 'injecao-diesel';
 
 // Descobre LPs olhando subdirs de app/injecao-diesel/ que contêm config.json
