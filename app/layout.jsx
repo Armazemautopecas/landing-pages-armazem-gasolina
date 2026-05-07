@@ -1,7 +1,7 @@
 import './globals.css';
 
 export const metadata = {
-  metadataBase: new URL('https://landing-pages-armazem-diesel.vercel.app'),
+  metadataBase: new URL('https://www.armazemautopecas.com.br'),
 };
 
 export default function RootLayout({ children }) {

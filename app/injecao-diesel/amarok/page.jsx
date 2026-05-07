@@ -5,7 +5,7 @@ import { buildJsonLd } from '../../_components/lib/jsonld';
 
 export const dynamic = 'force-static';
 
-const SITE_URL = 'https://landing-pages-armazem-diesel.vercel.app';
+const SITE_URL = 'https://www.armazemautopecas.com.br';
 const PAGE_URL = `${SITE_URL}${CFG.seo.canonical_path}`;
 const OG_IMAGE = `${SITE_URL}${CFG.seo.canonical_path}${CFG.seo.og_image}`;
 
