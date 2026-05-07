@@ -114,6 +114,21 @@
     "microtext_pre": "WhatsApp",
     "microtext_post": "— resposta em minutos, de segunda a sexta."
   },
+  "technical_block": {
+    "_doc": "Bloco técnico-educacional entre Testimonials e FAQ. Tom: frotista (HR é dominante em frota leve — entrega/distribuição). Foco em prevenção pra evitar caminhão parado. Cobre transição Delphi (até 2022) → Bosch (2023+ Euro 6 com Arla).",
+    "heading": "Bico injetor da HR D4CB: sintomas e como evitar caminhão parado",
+    "intro": "O bico injetor da HR 2.5 D4CB CRDi é o componente mais crítico do sistema de injeção. Quando começa a falhar, o consumo dispara e o desempenho cai. Pra quem trabalha com frota, identificar o problema antes da pane é o que evita caminhão parado fora do pátio.",
+    "symptoms": [
+      "Fumaça preta no escapamento, principalmente sob carga",
+      "Perda de potência em subida ou tracionando",
+      "Consumo de diesel acima do normal",
+      "Tranco e marcha lenta irregular",
+      "Dificuldade na partida a frio"
+    ],
+    "quality_explanation": "A HR teve duas marcas originais homologadas pela Hyundai/Kia: Delphi até 2022 e Bosch a partir de 2023 (Euro 6 com Arla). Ambas seguem a especificação de fábrica do motor 2.5 D4CB — pressão de abertura, pulverização e vedação calibradas. A primeira linha é fabricada por outros fornecedores também homologados, com qualidade equivalente, garantia e preço mais acessível pra frota. O que precisa evitar é bico de procedência duvidosa, sem rastreabilidade nem homologação — esses operam fora da faixa correta e causam injeção irregular com danos ao motor a médio prazo.",
+    "closing": "Na Armazém, identificamos o bico exato pelo número de placa ou chassi — sem margem de erro de compatibilidade. Estoque disponível para todos os anos da HR 2.5 D4CB CRDi (Delphi e Bosch), com despacho 24h pra todo o Brasil de Chapecó/SC."
+  },
+
   "seo": {
     "title": "Bico Injetor HR D4CB Delphi e Bosch — Armazém Auto Peças",
     "description": "Bico injetor original para Hyundai HR 2.5 D4CB CRDi (Delphi até 2022, Bosch 2023+ Euro 6 com Arla). Identificamos seu motor pela placa ou chassi. Despacho 24h. Compra segura.",
