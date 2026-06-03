@@ -72,7 +72,7 @@ export default function Page() {
       <FinalCTA cfg={CFG} />
       <Footer />
 
-      <a className="wa-fab" href={waLink(CFG.wa.fab_default)} target="_blank" rel="noreferrer" aria-label="WhatsApp">
+      <a className="wa-fab" href={waLink(CFG.wa.fab_default, CFG.slug)} target="_blank" rel="noreferrer" aria-label="WhatsApp">
         <WhatsAppIcon size={24} />
       </a>
     </>
