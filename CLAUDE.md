@@ -10,3 +10,44 @@
 
 ---
 
+# Landing Pages — Armazém Diesel
+
+LPs de peças automotivas (injeção diesel) da Armazém Auto Peças, Chapecó/SC. **Next.js + React**, deploy no **Vercel** (não é PM2/VPS). Inclui Vercel Function de consulta de veículo usando Upstash Redis.
+
+> ⚠️ O `README.md` está **parcialmente desatualizado** — fala em "HTML estático + React via CDN, sem build step". A realidade atual é **Next.js (App Router) com build step**. Em caso de dúvida, confiar no `package.json`, não no README.
+
+## Stack (do `package.json`)
+
+- **Next.js ^16** + **React ^19** (App Router em `app/`)
+- **`@upstash/redis`** — cache/estado da Vercel Function de consulta de veículo
+- **Vercel** (`vercel.json` → `{"framework":"nextjs"}`)
+- Testes: **Vitest**; validação de config: `scripts/validate-configs.mjs` (ajv); verificação pós-build: `scripts/verify-build.mjs`
+
+## Estrutura
+
+- `app/` — App Router: `layout.jsx`, `page.jsx`, `injecao-diesel/`, `_components/`, `globals.css`
+- `lib/`, `data/` — libs e dados das LPs
+- `scripts/` — `validate-configs.mjs`, `verify-build.mjs`
+- `tests/` — Vitest
+- `public/` — assets estáticos
+
+## Comandos
+
+```bash
+npm run dev      # next dev
+npm run build    # vitest run && validate-configs && next build && verify-build
+npm run test     # vitest run
+npm start        # next start
+```
+
+> O `build` roda testes + validação de config ANTES do `next build` — se falhar, é config/teste, não o Next.
+
+## Deploy
+
+Push na `main` → **Vercel deploya automático**. Toda branch aberta vira uma URL de preview própria.
+
+## Convenções (LPs)
+
+- Nome da pasta/slug = veículo curto (`amarok`, `hr`, `bongo`, `hilux`). O Bunny serve em `armazemautopecas.com.br/injecao-diesel/<slug>/` via Edge Rule de prefixo.
+- CTA único de WhatsApp → `wa.me/554998829474`.
+- **Nova LP:** usar a skill `armazem-lp-generator` do Claude Code (coleta os campos e gera os arquivos).
