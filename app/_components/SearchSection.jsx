@@ -40,7 +40,7 @@ function ResultPlate({ cfg, vehicle }) {
       </div>
       <div className="vehicle-name">{vehicle.marca} {vehicle.modelo}</div>
       <div className="vehicle-spec">
-        {vehicle.motor} · {vehicle.ano} · {vehicle.cv}cv<br />
+        {vehicle.motor} · {vehicle.ano}<br />
         Placa: {vehicle.plate} · Chassi final: {vehicle.chassi_tail}
       </div>
       <hr className="hr-dashed" />
@@ -63,7 +63,7 @@ function ResultPlate({ cfg, vehicle }) {
             {p.bullets.map((b, i) => <li key={i}>{b}</li>)}
           </ul>
           <a className="btn btn-red btn-lg" style={{ marginTop: 18 }}
-             href={waLink(msg)} target="_blank" rel="noreferrer">
+             href={waLink(msg, cfg.slug)} target="_blank" rel="noreferrer">
             <WhatsAppIcon /> Falar no WhatsApp
           </a>
         </div>
@@ -81,7 +81,7 @@ function ResultYear({ cfg, year, variants }) {
   const veiculoModelo = getVeiculoModelo(cfg);
   const groupsMap = new Map();
   variants.forEach((v) => {
-    const key = `${v.motor}|${v.cv}`;
+    const key = v.motor;
     if (!groupsMap.has(key)) groupsMap.set(key, { ...v, alternativeOems: [] });
     else groupsMap.get(key).alternativeOems.push(v.oem);
   });
@@ -109,7 +109,6 @@ function ResultYear({ cfg, year, variants }) {
                 <Image src={fotoSrc} alt={`${cfg.peca.nome} ${g.oem}`} width={600} height={600} sizes="(max-width: 768px) 45vw, 300px" />
               </div>
               <div className="v-motor">{g.motor}</div>
-              {g.cv && <div className="v-hp">{g.cv}</div>}
               <div className="v-part">
                 <div className="v-part-name">{cfg.peca.short_label}</div>
                 <div className="v-part-oem">Cód. OEM: {g.oem}{g.marca_bico ? ` · ${g.marca_bico}` : ''}</div>
@@ -127,7 +126,7 @@ function ResultYear({ cfg, year, variants }) {
                 </div>
               )}
               <a className="btn btn-navy btn-block" style={{ marginTop: 16 }}
-                 href={waLink(msg)} target="_blank" rel="noreferrer">
+                 href={waLink(msg, cfg.slug)} target="_blank" rel="noreferrer">
                 Ver detalhes
               </a>
             </div>
@@ -135,7 +134,7 @@ function ResultYear({ cfg, year, variants }) {
         })}
       </div>
       <p style={{ fontSize: 13, color: 'var(--muted)', marginTop: 18 }}>
-        Não sabe qual é o seu? Insira a placa no seletor ↑ ou <a href={waLink(cfg.wa.result_dontknow_motor)} target="_blank" rel="noreferrer" style={{ textDecoration: 'underline' }}>chame o vendedor no WhatsApp</a>.
+        Não sabe qual é o seu? Insira a placa no seletor ↑ ou <a href={waLink(cfg.wa.result_dontknow_motor, cfg.slug)} target="_blank" rel="noreferrer" style={{ textDecoration: 'underline' }}>chame o vendedor no WhatsApp</a>.
       </p>
     </div>
   );
@@ -149,7 +148,7 @@ function ResultNotFound({ cfg, query }) {
         Não localizamos um veículo para <b style={{ color: 'var(--ink)' }}>{query}</b>. Verifique a placa ou fale com um vendedor pra gente conferir pela nota do carro.
       </div>
       <a className="btn btn-red btn-lg" style={{ marginTop: 18 }}
-         href={waLink(fmt(cfg.wa.result_notfound_template, { query }))}
+         href={waLink(fmt(cfg.wa.result_notfound_template, { query }), cfg.slug)}
          target="_blank" rel="noreferrer">
         <WhatsAppIcon /> Chamar o vendedor
       </a>
@@ -167,7 +166,7 @@ function ResultNotSupported({ cfg, vehicle, query, message }) {
         {message || cfg.result_messages.not_supported_default}
       </div>
       <a className="btn btn-red btn-lg" style={{ marginTop: 18 }}
-         href={waLink(waMsg)} target="_blank" rel="noreferrer">
+         href={waLink(waMsg, cfg.slug)} target="_blank" rel="noreferrer">
         <WhatsAppIcon /> Falar com o vendedor
       </a>
     </div>
@@ -182,7 +181,7 @@ function ResultError({ cfg, query, message }) {
         {message || 'Não conseguimos consultar agora. Fale com um vendedor.'}
       </div>
       <a className="btn btn-red btn-lg" style={{ marginTop: 18 }}
-         href={waLink(fmt(cfg.wa.result_error_template, { query }))}
+         href={waLink(fmt(cfg.wa.result_error_template, { query }), cfg.slug)}
          target="_blank" rel="noreferrer">
         <WhatsAppIcon /> Chamar o vendedor
       </a>
