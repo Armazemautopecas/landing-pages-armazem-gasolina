@@ -3,7 +3,6 @@ import '../../_components/styles.css';
 import LandingClient from '../../_components/LandingClient';
 import TrustBar from '../../_components/TrustBar';
 import WhySection from '../../_components/WhySection';
-import Categorias from '../../_components/Categorias';
 import Testimonials from '../../_components/Testimonials';
 import FAQ from '../../_components/FAQ';
 import FinalCTA from '../../_components/FinalCTA';
@@ -62,7 +61,6 @@ export default function Page() {
       </LandingClient>
 
       <WhySection cfg={CFG} style="stacked" />
-      <Categorias cfg={CFG} />
       <Testimonials cfg={CFG} />
       <FAQ cfg={CFG} />
       <FinalCTA cfg={CFG} />

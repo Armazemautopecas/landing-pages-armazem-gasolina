@@ -71,81 +71,9 @@
       }
     ]
   },
-  "categorias": {
-    "eyebrow": "Tudo num lugar só",
-    "titulo": "Tudo que o 320 precisa",
-    "subtitulo": "Categorias mais procuradas. Não achou? É só perguntar no WhatsApp.",
-    "cta_final": "QUERO COTAR PRO MEU 320",
-    "items": [
-      {
-        "slug": "filtros",
-        "nome": "Filtros",
-        "emoji": "🧰",
-        "imagem": "",
-        "descricao": "Ar, óleo, combustível e cabine — kit ou avulso.",
-        "cta_label": "Quero cotar",
-        "whatsapp_mensagem": "Olá, quero cotar filtros pro meu Lifan 320."
-      },
-      {
-        "slug": "freio",
-        "nome": "Freio",
-        "emoji": "🛑",
-        "imagem": "",
-        "descricao": "Pastilhas, discos, fluido — kit completo ou avulso.",
-        "cta_label": "Quero cotar",
-        "whatsapp_mensagem": "Olá, quero cotar peças de freio pro meu Lifan 320."
-      },
-      {
-        "slug": "suspensao",
-        "nome": "Suspensão",
-        "emoji": "🚙",
-        "imagem": "",
-        "descricao": "Amortecedor, bandeja, batente, bucha.",
-        "cta_label": "Quero cotar",
-        "whatsapp_mensagem": "Olá, quero cotar suspensão pro meu Lifan 320."
-      },
-      {
-        "slug": "embreagem",
-        "nome": "Embreagem",
-        "emoji": "⚙️",
-        "imagem": "",
-        "descricao": "Kit completo (disco, platô, rolamento) ou avulso.",
-        "cta_label": "Quero cotar",
-        "whatsapp_mensagem": "Olá, quero cotar kit de embreagem pro meu Lifan 320."
-      },
-      {
-        "slug": "motor",
-        "nome": "Motor",
-        "emoji": "🔧",
-        "imagem": "",
-        "descricao": "Correia, vela, bobina, sensor.",
-        "cta_label": "Quero cotar",
-        "whatsapp_mensagem": "Olá, quero cotar peças de motor pro meu Lifan 320."
-      },
-      {
-        "slug": "eletrica",
-        "nome": "Elétrica",
-        "emoji": "🔋",
-        "imagem": "",
-        "descricao": "Alternador, motor de partida, bateria.",
-        "cta_label": "Quero cotar",
-        "whatsapp_mensagem": "Olá, quero cotar peças elétricas pro meu Lifan 320."
-      },
-      {
-        "slug": "geral",
-        "nome": "Outras peças",
-        "emoji": "🛠️",
-        "imagem": "",
-        "descricao": "Não achou aqui? Pergunta pra gente — a gente acha.",
-        "cta_label": "Perguntar",
-        "whatsapp_mensagem": "Olá, preciso de uma peça pro Lifan 320 que não achei na página. Pode me ajudar?"
-      }
-    ]
-  },
   "wa": {
     "hero_link": "Olá, quero cotar peça pro meu Lifan 320.",
     "fab_default": "Olá, cheguei pela landing page do Lifan 320.",
-    "categorias_geral": "Olá, quero cotar peça pro meu Lifan 320.",
     "final_cta": "Olá, quero falar com vendedor sobre o meu Lifan 320."
   },
   "testimonials": {
