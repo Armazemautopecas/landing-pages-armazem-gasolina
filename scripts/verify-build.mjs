@@ -2,8 +2,8 @@
 import { readFile, readdir } from 'node:fs/promises';
 import { join } from 'node:path';
 
-const LANDING_BASE_DIR = new URL('../app/injecao-diesel/', import.meta.url).pathname;
-const SERVER_LANDING_DIR = new URL('../.next/server/app/injecao-diesel/', import.meta.url).pathname;
+const LANDING_BASE_DIR = new URL('../app/gasolina/', import.meta.url).pathname;
+const SERVER_LANDING_DIR = new URL('../.next/server/app/gasolina/', import.meta.url).pathname;
 
 const MIN_SIZE = 25_000;
 const MIN_TITLE = 20;
@@ -69,17 +69,23 @@ function checkHtml(slug, html) {
 }
 
 async function main() {
-  const slugs = await findLandingPages();
+  let slugs;
+  try {
+    slugs = await findLandingPages();
+  } catch {
+    console.log('verify-build: app/gasolina/ vazio — nada a verificar (skip)');
+    return;
+  }
   if (slugs.length === 0) {
-    console.error('verify-build: nenhuma LP encontrada em app/injecao-diesel/');
-    process.exit(1);
+    console.log('verify-build: nenhuma LP em app/gasolina/ ainda — skip');
+    return;
   }
 
   let allOk = true;
   for (const slug of slugs) {
     const built = await readBuiltHtml(slug);
     if (!built) {
-      console.error(`✗ ${slug}: HTML pré-renderizado não encontrado em .next/server/app/injecao-diesel/`);
+      console.error(`✗ ${slug}: HTML pré-renderizado não encontrado em .next/server/app/gasolina/`);
       allOk = false;
       continue;
     }

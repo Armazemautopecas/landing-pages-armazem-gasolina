@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="foot-grid">
           <div className="foot-brand">
             <img
-              src="/injecao-diesel/logo-armazem.png"
+              src="/gasolina/logo-armazem.png"
               alt="Armazém Auto Peças"
               className="foot-logo"
               width="160"

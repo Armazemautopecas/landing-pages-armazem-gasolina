@@ -13,7 +13,7 @@ export default function Testimonials({ cfg }) {
       <div className="container">
         <div className="testi-head">
           <div className="eyebrow" style={{ color: 'var(--muted)', marginBottom: 10 }}>Depoimentos</div>
-          <h2 className="h2">Quem já voltou<br />a rodar com a gente</h2>
+          <h2 className="h2">{cfg.testimonials?.h2_l1 || 'Quem já resolveu'}<br />{cfg.testimonials?.h2_l2 || 'a peça com a gente'}</h2>
         </div>
         <div className="testi-track" role="list" aria-label="Depoimentos de clientes">
           {TESTIMONIALS.map((t, i) => (

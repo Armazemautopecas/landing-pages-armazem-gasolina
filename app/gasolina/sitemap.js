@@ -2,9 +2,9 @@ import { readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const SITE_URL = 'https://www.armazemautopecas.com.br';
-const LANDING_BASE = 'injecao-diesel';
+const LANDING_BASE = 'gasolina';
 
-// Descobre LPs olhando subdirs de app/injecao-diesel/ que contêm config.json
+// Descobre LPs olhando subdirs de app/gasolina/ que contêm config.json
 // (convenção do projeto desde a reorg). Próxima LP nasce auto-listada — sem
 // editar sitemap.
 function findLandingSlugs() {
