@@ -1,0 +1,173 @@
+{
+  "_doc": "LP Lifan 320 — gerada pela skill lp-armazem-lifans com template fixo.",
+  "slug": "lifan-320",
+  "veiculo": {
+    "marca": "Lifan",
+    "modelo": "320"
+  },
+  "hero": {
+    "eyebrow": "TUDO PRO SEU 320. PEÇAS, MANUTENÇÃO, ATENDIMENTO.",
+    "h1_linha1": "PEÇAS PRA",
+    "h1_linha2": "LIFAN 320",
+    "h1_sub": "Sem dor de cabeça.",
+    "sub": "Filtros, freio, embreagem e mecânica geral — tudo pra manter seu 320 rodando, com atendimento direto no WhatsApp.",
+    "cta_mobile_label": "Quero cotar pro 320",
+    "cta_desktop_label": "FALAR COM VENDEDOR",
+    "trusts": [
+      "ATENDIMENTO HUMANO",
+      "ENTREGA RASTREADA",
+      "FRETE PRA TODO BRASIL"
+    ],
+    "foto_static": "assets/hero-static.webp",
+    "foto_alt": "Lifan 320 em destaque"
+  },
+  "trust_bar": {
+    "items": [
+      {
+        "icon": "shield",
+        "ttl": "Peças Certificadas",
+        "sub": "Procedência garantida",
+        "num": "100%"
+      },
+      {
+        "icon": "box",
+        "ttl": "Despacho Rápido",
+        "sub": "Saída em até 24h úteis",
+        "num": "24h"
+      },
+      {
+        "icon": "gear",
+        "ttl": "Atendimento Humano",
+        "sub": "Direto no WhatsApp",
+        "num": "1:1"
+      },
+      {
+        "icon": "factory",
+        "ttl": "Pra todo Brasil",
+        "sub": "Saída de Chapecó/SC",
+        "num": "BR"
+      }
+    ]
+  },
+  "why": {
+    "h2_l1": "Por que escolher a Armazém",
+    "h2_l2": "pro seu",
+    "h2_l2_red": "Lifan 320",
+    "items": [
+      {
+        "num": "01",
+        "ttl": "Especialista em linha asiática",
+        "body": "Atendemos Lifan, Effa, JAC, Chery e outras marcas chinesas há mais de uma década. Conhecemos as particularidades do 320 e sabemos onde achar cada peça com procedência."
+      },
+      {
+        "num": "02",
+        "ttl": "Compatibilidade conferida",
+        "body": "Cada peça é validada pelo ano de fabricação e chassi antes de despachar. Sem 'deve servir' — confirmamos antes do pagamento."
+      },
+      {
+        "num": "03",
+        "ttl": "Atendimento sem robô",
+        "body": "Você fala com vendedor humano via WhatsApp. Tira dúvida técnica, manda foto, pede cotação. Sem formulário longo, sem URA."
+      }
+    ]
+  },
+  "categorias": {
+    "eyebrow": "Tudo num lugar só",
+    "titulo": "Tudo que o 320 precisa",
+    "subtitulo": "Categorias mais procuradas. Não achou? É só perguntar no WhatsApp.",
+    "cta_final": "QUERO COTAR PRO MEU 320",
+    "items": [
+      {
+        "slug": "filtros",
+        "nome": "Filtros",
+        "emoji": "🧰",
+        "imagem": "",
+        "descricao": "Ar, óleo, combustível e cabine — kit ou avulso.",
+        "cta_label": "Quero cotar",
+        "whatsapp_mensagem": "Olá, quero cotar filtros pro meu Lifan 320."
+      },
+      {
+        "slug": "freio",
+        "nome": "Freio",
+        "emoji": "🛑",
+        "imagem": "",
+        "descricao": "Pastilhas, discos, fluido — kit completo ou avulso.",
+        "cta_label": "Quero cotar",
+        "whatsapp_mensagem": "Olá, quero cotar peças de freio pro meu Lifan 320."
+      },
+      {
+        "slug": "suspensao",
+        "nome": "Suspensão",
+        "emoji": "🚙",
+        "imagem": "",
+        "descricao": "Amortecedor, bandeja, batente, bucha.",
+        "cta_label": "Quero cotar",
+        "whatsapp_mensagem": "Olá, quero cotar suspensão pro meu Lifan 320."
+      },
+      {
+        "slug": "embreagem",
+        "nome": "Embreagem",
+        "emoji": "⚙️",
+        "imagem": "",
+        "descricao": "Kit completo (disco, platô, rolamento) ou avulso.",
+        "cta_label": "Quero cotar",
+        "whatsapp_mensagem": "Olá, quero cotar kit de embreagem pro meu Lifan 320."
+      },
+      {
+        "slug": "motor",
+        "nome": "Motor",
+        "emoji": "🔧",
+        "imagem": "",
+        "descricao": "Correia, vela, bobina, sensor.",
+        "cta_label": "Quero cotar",
+        "whatsapp_mensagem": "Olá, quero cotar peças de motor pro meu Lifan 320."
+      },
+      {
+        "slug": "eletrica",
+        "nome": "Elétrica",
+        "emoji": "🔋",
+        "imagem": "",
+        "descricao": "Alternador, motor de partida, bateria.",
+        "cta_label": "Quero cotar",
+        "whatsapp_mensagem": "Olá, quero cotar peças elétricas pro meu Lifan 320."
+      },
+      {
+        "slug": "geral",
+        "nome": "Outras peças",
+        "emoji": "🛠️",
+        "imagem": "",
+        "descricao": "Não achou aqui? Pergunta pra gente — a gente acha.",
+        "cta_label": "Perguntar",
+        "whatsapp_mensagem": "Olá, preciso de uma peça pro Lifan 320 que não achei na página. Pode me ajudar?"
+      }
+    ]
+  },
+  "wa": {
+    "hero_link": "Olá, quero cotar peça pro meu Lifan 320.",
+    "fab_default": "Olá, cheguei pela landing page do Lifan 320.",
+    "categorias_geral": "Olá, quero cotar peça pro meu Lifan 320.",
+    "final_cta": "Olá, quero falar com vendedor sobre o meu Lifan 320."
+  },
+  "testimonials": {
+    "h2_l1": "Quem já resolveu",
+    "h2_l2": "a peça com a gente"
+  },
+  "final_cta": {
+    "h2_l1": "Pronto pra",
+    "h2_l2_red_l1": "colocar o 320",
+    "h2_l2_red_l2": "em dia",
+    "sub_pre": "Manda mensagem que",
+    "sub_post": "a gente cota, confirma compatibilidade e despacha.",
+    "btn": "Falar no WhatsApp agora",
+    "microtext_pre": "WhatsApp",
+    "microtext_post": "— resposta em minutos, de segunda a sexta."
+  },
+  "seo": {
+    "title": "Peças e Manutenção Lifan 320 — Armazém Auto Peças",
+    "description": "Peças, filtros, freio e embreagem pro Lifan 320 com atendimento direto no WhatsApp. Despacho pra todo Brasil. Compra segura.",
+    "og_image": "assets/hero-static.png",
+    "og_image_alt": "Lifan 320 em destaque",
+    "twitter_description": "Peças, filtros, freio e embreagem pro Lifan 320 — atendimento direto no WhatsApp.",
+    "canonical_path": "/gasolina/lifan-320/"
+  }
+}
