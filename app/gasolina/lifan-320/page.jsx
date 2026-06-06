@@ -39,7 +39,7 @@ export const metadata = {
   },
 };
 
-const jsonLd = buildJsonLd(CFG, PAGE_URL);
+const jsonLd = buildJsonLd(CFG, PAGE_URL, { oemCount: 0 });
 
 export default function Page() {
   return (
@@ -48,13 +48,7 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <link
-        rel="preload"
-        as="image"
-        href={`/gasolina/${CFG.slug}/${CFG.hero.foto_static}`}
-        type="image/webp"
-        fetchPriority="high"
-      />
+      <link rel="preload" as="image" href={`/gasolina/${CFG.slug}/${CFG.hero.foto_static}`} type="image/webp" fetchPriority="high" />
 
       <LandingClient cfg={CFG}>
         <TrustBar cfg={CFG} style="numbers" />
@@ -66,13 +60,7 @@ export default function Page() {
       <FinalCTA cfg={CFG} />
       <Footer />
 
-      <a
-        className="wa-fab"
-        href={waLink(CFG.wa.fab_default, CFG.slug)}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="WhatsApp"
-      >
+      <a className="wa-fab" href={waLink(CFG.wa.fab_default, CFG.slug)} target="_blank" rel="noreferrer" aria-label="WhatsApp">
         <WhatsAppIcon size={24} />
       </a>
     </>

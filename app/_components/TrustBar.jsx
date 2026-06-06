@@ -1,16 +1,18 @@
 import { TrustIcon } from './atoms';
+import { getFabricanteLabel } from '@/lib/content';
 
-// TrustBar gasolina — lê 4 itens de cfg.trust_bar.items.
-// Cada item: { icon: 'shield'|'box'|'gear'|'factory', ttl, sub, num }.
-const FALLBACK_CELLS = [
-  { icon: 'shield', ttl: 'Peças Certificadas', sub: 'Procedência garantida', num: '100%' },
-  { icon: 'box', ttl: 'Despacho Rápido', sub: 'Saída em até 24h úteis', num: '24h' },
-  { icon: 'gear', ttl: 'Atendimento Humano', sub: 'Direto no WhatsApp', num: '0' },
-  { icon: 'factory', ttl: 'Pra todo Brasil', sub: 'Saída de Chapecó/SC', num: 'BR' },
-];
-
+// Server component (Onda 3 — 2026-05-08). Conteúdo aparece direto, sem
+// reveal-on-scroll que exigia useState+IntersectionObserver. Animation
+// removida pra zerar JS desse componente — TrustBar é visualmente estático
+// e perceptualmente igual sem o fade-in.
 export default function TrustBar({ cfg, style }) {
-  const cells = cfg.trust_bar?.items || FALLBACK_CELLS;
+  const fabricante = getFabricanteLabel(cfg);
+  const cells = [
+    { icon: 'shield', ttl: 'Peças Originais', sub: fabricante ? `OEM ${fabricante}` : 'Garantia de fábrica', num: '100%' },
+    { icon: 'box', ttl: 'Despacho Rápido', sub: 'Saída em até 24h úteis', num: '24h' },
+    { icon: 'gear', ttl: 'Compatibilidade Confirmada', sub: 'FIPE/Denatran', num: 'OEM' },
+    { icon: 'factory', ttl: 'Bicos Vendidos', sub: 'Pra todo o Brasil', num: '10K+' },
+  ];
 
   return (
     <section className={`trust ${style === 'minimal' ? 'is-minimal' : ''} ${style === 'numbers' ? 'is-numbers' : ''}`}>

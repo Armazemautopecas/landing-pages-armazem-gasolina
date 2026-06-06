@@ -1,7 +1,12 @@
-// LandingClient simplificado pra repo gasolina (veículo-cêntrico).
-// Original (diesel) orquestrava Hero + SearchSection com state de busca por placa.
-// Aqui é só wrapper estático Hero + children (TrustBar/Categorias/etc do page.jsx).
-// Mantido como componente porque page.jsx do diesel já importava — facilita migração.
+'use client';
+
+// LandingClient — versão gasolina. Removido SearchSection e todo state de busca
+// por placa/ano. Mantém só Hero + children (TrustBar do page.jsx) pra preservar
+// posicionamento visual idêntico ao diesel sem a interatividade do Selector.
+//
+// Componente é "use client" porque o tipo da árvore ainda é o orquestrador
+// herdado do diesel; renderiza Hero (que também é client). Pode ser convertido
+// pra server component em refactor futuro se Hero também virar server.
 
 import Hero from './Hero';
 

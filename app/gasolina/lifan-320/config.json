@@ -1,101 +1,120 @@
 {
-  "_doc": "LP Lifan 320 — gerada pela skill lp-armazem-lifans com template fixo.",
+  "_doc": "LP Lifan 320 — fork do scaffold do diesel sem SearchSection. Veículo-cêntrica (não vende peça única).",
+
   "slug": "lifan-320",
+  "categoria": "veiculo",
+  "veiculo_key": "lifan-320",
+
   "veiculo": {
-    "marca": "Lifan",
-    "modelo": "320"
+    "marca_aliases": ["LIFAN"],
+    "modelo_aliases": ["320"]
   },
+
   "hero": {
-    "eyebrow": "TUDO PRO SEU 320. PEÇAS, MANUTENÇÃO, ATENDIMENTO.",
+    "eyebrow": "PEÇAS E MANUTENÇÃO PRO SEU LIFAN.",
     "h1_linha1": "PEÇAS PRA",
     "h1_linha2": "LIFAN 320",
-    "h1_sub": "Sem dor de cabeça.",
-    "sub": "Filtros, freio, embreagem e mecânica geral — tudo pra manter seu 320 rodando, com atendimento direto no WhatsApp.",
-    "cta_mobile_label": "Quero cotar pro 320",
-    "cta_desktop_label": "FALAR COM VENDEDOR",
-    "trusts": [
-      "ATENDIMENTO HUMANO",
-      "ENTREGA RASTREADA",
-      "FRETE PRA TODO BRASIL"
-    ],
-    "foto_static": "assets/hero-static.webp",
-    "foto_alt": "Lifan 320 em destaque"
+    "h1_sub": "Linha asiática é nosso nicho.",
+    "sub": "Filtros, freio, embreagem, motor e elétrica — atendimento direto pra deixar seu 320 rodando bem.",
+    "foto_static": "assets/lifan-320-static.webp",
+    "foto_alt": "Lifan 320 em destaque",
+    "bg_position_mobile": "50% 50%",
+    "bg_position_desktop": "62% center",
+    "cta_mobile_label": "Falar com vendedor"
   },
-  "trust_bar": {
-    "items": [
-      {
-        "icon": "shield",
-        "ttl": "Peças Certificadas",
-        "sub": "Procedência garantida",
-        "num": "100%"
-      },
-      {
-        "icon": "box",
-        "ttl": "Despacho Rápido",
-        "sub": "Saída em até 24h úteis",
-        "num": "24h"
-      },
-      {
-        "icon": "gear",
-        "ttl": "Atendimento Humano",
-        "sub": "Direto no WhatsApp",
-        "num": "1:1"
-      },
-      {
-        "icon": "factory",
-        "ttl": "Pra todo Brasil",
-        "sub": "Saída de Chapecó/SC",
-        "num": "BR"
-      }
-    ]
-  },
+
   "why": {
-    "h2_l1": "Por que escolher a Armazém",
-    "h2_l2": "pro seu",
-    "h2_l2_red": "Lifan 320",
+    "h2_l1": "Linha chinesa não é problema.",
+    "h2_l2": "É",
+    "h2_l2_red": "nosso nicho",
     "items": [
       {
         "num": "01",
-        "ttl": "Especialista em linha asiática",
-        "body": "Atendemos Lifan, Effa, JAC, Chery e outras marcas chinesas há mais de uma década. Conhecemos as particularidades do 320 e sabemos onde achar cada peça com procedência."
+        "ttl": "Linha asiática é o que a gente faz.",
+        "body": "Atendemos Lifan, Effa, JAC, Chery e outras marcas chinesas há mais de uma década. Conhecemos o 320, sabemos onde achar a peça e a procedência."
       },
       {
         "num": "02",
-        "ttl": "Compatibilidade conferida",
-        "body": "Cada peça é validada pelo ano de fabricação e chassi antes de despachar. Sem 'deve servir' — confirmamos antes do pagamento."
+        "ttl": "Compatibilidade conferida.",
+        "body": "Antes de despachar, a gente confere o ano e o chassi do seu 320 pra garantir que a peça serve. Sem ‘deve servir’, sem retrabalho."
       },
       {
         "num": "03",
-        "ttl": "Atendimento sem robô",
-        "body": "Você fala com vendedor humano via WhatsApp. Tira dúvida técnica, manda foto, pede cotação. Sem formulário longo, sem URA."
+        "ttl": "Despacho rápido pra todo Brasil.",
+        "body": "Estoque próprio em Chapecó/SC, saída em até 24h úteis da confirmação, entrega rastreada. Seu 320 não fica parado esperando."
       }
     ]
   },
+
   "wa": {
-    "hero_link": "Olá, quero cotar peça pro meu Lifan 320.",
-    "fab_default": "Olá, cheguei pela landing page do Lifan 320.",
-    "final_cta": "Olá, quero falar com vendedor sobre o meu Lifan 320."
+    "hero_link": "Olá, quero falar com vendedor sobre peças pro meu Lifan 320.",
+    "fab_default": "Olá, cheguei pela landing page e quero falar sobre peças pro meu Lifan 320.",
+    "final_cta": "Olá, quero falar com vendedor sobre peças pro meu Lifan 320."
   },
-  "testimonials": {
-    "h2_l1": "Quem já resolveu",
-    "h2_l2": "a peça com a gente"
-  },
+
   "final_cta": {
     "h2_l1": "Pronto pra",
     "h2_l2_red_l1": "colocar o 320",
     "h2_l2_red_l2": "em dia",
-    "sub_pre": "Manda mensagem que",
-    "sub_post": "a gente cota, confirma compatibilidade e despacha.",
-    "btn": "Falar no WhatsApp agora",
+    "sub_pre": "Manda mensagem que a gente cota, confere compatibilidade e despacha.",
+    "sub_anchor": "",
+    "sub_post": "",
+    "btn": "Falar com o vendedor agora",
     "microtext_pre": "WhatsApp",
     "microtext_post": "— resposta em minutos, de segunda a sexta."
   },
+
+  "content": {
+    "faqs": {
+      "sintomas": {
+        "q": "Como sei se preciso trocar peça do meu Lifan 320?",
+        "a": "Os sinais variam por componente: filtro entupido aumenta consumo e dá perda de potência; pastilha gasta range avisa com chiado ou vibração no freio; embreagem cansada patina ou pega alto demais. Se notou algum sintoma, manda no WhatsApp descrevendo — a gente ajuda a identificar."
+      },
+      "qualidade": {
+        "q": "Qual a procedência das peças do Lifan 320?",
+        "a": "Trabalhamos com peças originais (genuínas Lifan/equivalentes de fábrica) e primeira linha homologada. Pra cada item indicamos as opções disponíveis e preços — você escolhe conforme sua necessidade. Não trabalhamos com paralelo de procedência duvidosa."
+      },
+      "calibracao": {
+        "q": "Vocês atendem outras marcas chinesas além de Lifan?",
+        "a": "Sim. Atendemos toda linha asiática: Lifan, Effa, JAC, Chery, BYD, Hafei, Geely e outras. Conhecemos as particularidades de cada modelo e sabemos onde achar peças que outras lojas dizem \"não tem\"."
+      },
+      "preco": {
+        "q": "Quanto custa fazer manutenção do Lifan 320?",
+        "a": "Varia muito por categoria — filtros são acessíveis, kit embreagem ou correia dentada têm valor maior. A linha asiática tem manutenção mais barata que importados premium. Manda no WhatsApp o que precisa que a gente cota na hora."
+      },
+      "compatibilidade": {
+        "q": "Como sei que a peça serve no meu carro?",
+        "a": "Pedimos o ano de fabricação e a versão (motor, câmbio) ou o número do chassi. Com isso a gente confirma compatibilidade antes de despachar. Manda uma foto do antigo se ajudar."
+      },
+      "troca": {
+        "q": "E se a peça não servir?",
+        "a": "A gente resolve: troca sem custo ou reembolso integral. Por isso pedimos os dados de compatibilidade antes — pra evitar essa situação. Mas se acontecer, é simples."
+      },
+      "prazo": {
+        "q": "Prazo de entrega e formas de pagamento?",
+        "a": "Despacho no mesmo dia útil da confirmação do pagamento. Entrega rastreada pra todo Brasil de Chapecó/SC. PIX, boleto e cartão em até 10x. Toda compra sai com nota fiscal eletrônica."
+      },
+      "pagamento": {
+        "q": "Atendem oficina e frotista?",
+        "a": "Sim, temos condição especial pra oficina parceira e frota. Chame no WhatsApp informando o volume e a gente alinha preço e prazo."
+      }
+    }
+  },
+
   "seo": {
     "title": "Peças e Manutenção Lifan 320 — Armazém Auto Peças",
     "description": "Peças, filtros, freio e embreagem pro Lifan 320 com atendimento direto no WhatsApp. Despacho pra todo Brasil. Compra segura.",
-    "og_image": "assets/hero-static.png",
+    "og_image": "assets/lifan-320-static.png",
     "og_image_alt": "Lifan 320 em destaque",
     "twitter_description": "Peças, filtros, freio e embreagem pro Lifan 320 — atendimento direto no WhatsApp.",
-    "canonical_path": "/gasolina/lifan-320/"
+    "canonical_path": "/gasolina/lifan-320/",
+    "product": {
+      "name": "Peças para Lifan 320",
+      "description": "Peças, filtros, freio, embreagem, motor e elétrica para Lifan 320 — linha asiática completa, com procedência garantida e despacho pra todo Brasil.",
+      "brands": ["Lifan"],
+      "vehicles": ["Lifan 320"],
+      "price_range": "R$ 50 - R$ 1.500",
+      "free_shipping": false
+    }
   }
 }
