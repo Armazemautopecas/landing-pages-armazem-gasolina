@@ -1,24 +1,44 @@
 {
   "_doc": "LP Lifan 320 — fork do scaffold do diesel sem SearchSection. Veículo-cêntrica (não vende peça única).",
-
   "slug": "lifan-320",
   "categoria": "veiculo",
   "veiculo_key": "lifan-320",
-
   "veiculo": {
-    "marca_aliases": ["LIFAN"],
-    "modelo_aliases": ["320"]
-  },
-
-  "trust_bar": {
-    "items": [
-      { "icon": "shield", "ttl": "Peças Certificadas", "sub": "Procedência garantida", "num": "100%" },
-      { "icon": "box", "ttl": "Despacho Rápido", "sub": "Saída em 24h úteis", "num": "24h" },
-      { "icon": "gear", "ttl": "Linha Asiática", "sub": "Lifan, Effa, JAC, Chery", "num": "10+" },
-      { "icon": "factory", "ttl": "Pra Todo Brasil", "sub": "Saída de Chapecó/SC", "num": "BR" }
+    "marca_aliases": [
+      "LIFAN"
+    ],
+    "modelo_aliases": [
+      "320"
     ]
   },
-
+  "trust_bar": {
+    "items": [
+      {
+        "icon": "shield",
+        "ttl": "Peças Certificadas",
+        "sub": "Procedência garantida",
+        "num": "100%"
+      },
+      {
+        "icon": "box",
+        "ttl": "Despacho Rápido",
+        "sub": "Saída em 24h úteis",
+        "num": "24h"
+      },
+      {
+        "icon": "gear",
+        "ttl": "Anos com Asiáticos",
+        "sub": "Lifan, Effa, JAC, Chery",
+        "num": "10+"
+      },
+      {
+        "icon": "factory",
+        "ttl": "Entrega Garantida",
+        "sub": "Em todo Brasil — saída de Chapecó/SC",
+        "num": "🇧🇷"
+      }
+    ]
+  },
   "hero": {
     "eyebrow": "PEÇAS E MANUTENÇÃO PRO SEU LIFAN.",
     "h1_linha1": "PEÇAS PRA",
@@ -31,7 +51,6 @@
     "bg_position_desktop": "62% center",
     "cta_mobile_label": "Falar com vendedor"
   },
-
   "why": {
     "h2_l1": "Linha chinesa não é problema.",
     "h2_l2": "É",
@@ -54,13 +73,11 @@
       }
     ]
   },
-
   "wa": {
     "hero_link": "Olá, quero falar com vendedor sobre peças pro meu Lifan 320.",
     "fab_default": "Olá, cheguei pela landing page e quero falar sobre peças pro meu Lifan 320.",
     "final_cta": "Olá, quero falar com vendedor sobre peças pro meu Lifan 320."
   },
-
   "final_cta": {
     "h2_l1": "Pronto pra",
     "h2_l2_red_l1": "colocar o 320",
@@ -72,7 +89,6 @@
     "microtext_pre": "WhatsApp",
     "microtext_post": "— resposta em minutos, de segunda a sexta."
   },
-
   "content": {
     "faqs": {
       "sintomas": {
@@ -109,7 +125,6 @@
       }
     }
   },
-
   "seo": {
     "title": "Peças e Manutenção Lifan 320 — Armazém Auto Peças",
     "description": "Peças, filtros, freio e embreagem pro Lifan 320 com atendimento direto no WhatsApp. Despacho pra todo Brasil. Compra segura.",
@@ -120,8 +135,12 @@
     "product": {
       "name": "Peças para Lifan 320",
       "description": "Peças, filtros, freio, embreagem, motor e elétrica para Lifan 320 — linha asiática completa, com procedência garantida e despacho pra todo Brasil.",
-      "brands": ["Lifan"],
-      "vehicles": ["Lifan 320"],
+      "brands": [
+        "Lifan"
+      ],
+      "vehicles": [
+        "Lifan 320"
+      ],
       "price_range": "R$ 50 - R$ 1.500",
       "free_shipping": false
     }

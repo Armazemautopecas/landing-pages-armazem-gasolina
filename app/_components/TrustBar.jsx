@@ -6,8 +6,8 @@ import { TrustIcon } from './atoms';
 const FALLBACK_CELLS = [
   { icon: 'shield', ttl: 'Peças Certificadas', sub: 'Procedência garantida', num: '100%' },
   { icon: 'box', ttl: 'Despacho Rápido', sub: 'Saída em 24h úteis', num: '24h' },
-  { icon: 'gear', ttl: 'Linha Asiática', sub: 'Lifan, Effa, JAC, Chery', num: '10+' },
-  { icon: 'factory', ttl: 'Pra Todo Brasil', sub: 'Saída de Chapecó/SC', num: 'BR' },
+  { icon: 'gear', ttl: 'Anos com Asiáticos', sub: 'Lifan, Effa, JAC, Chery', num: '10+' },
+  { icon: 'factory', ttl: 'Entrega Garantida', sub: 'Em todo Brasil — saída de Chapecó/SC', num: '🇧🇷' },
 ];
 
 export default function TrustBar({ cfg, style }) {
