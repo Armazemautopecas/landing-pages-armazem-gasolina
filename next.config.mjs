@@ -21,14 +21,13 @@ const IMMUTABLE_CACHE = [
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  assetPrefix: '/gasolina',
   trailingSlash: true,
   poweredByHeader: false,
   async headers() {
     return [
       { source: '/:path*', headers: securityHeaders },
-      { source: '/gasolina/fonts/:path*', headers: IMMUTABLE_CACHE },
-      { source: '/gasolina/:slug/assets/:path*', headers: IMMUTABLE_CACHE },
+      { source: '/fonts/:path*', headers: IMMUTABLE_CACHE },
+      { source: '/pecas-lifan-:model/assets/:path*', headers: IMMUTABLE_CACHE },
     ];
   },
 };

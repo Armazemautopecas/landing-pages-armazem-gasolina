@@ -2,17 +2,14 @@ import { readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const SITE_URL = 'https://www.armazemautopecas.com.br';
-const LANDING_BASE = 'gasolina';
 
-// Descobre LPs olhando subdirs de app/gasolina/ que contêm config.json
-// (convenção do projeto desde a reorg). Próxima LP nasce auto-listada — sem
-// editar sitemap.
+// Descobre LPs olhando subdirs de app/ que começam com "pecas-" e contêm config.json.
 function findLandingSlugs() {
-  const baseDir = join(process.cwd(), 'app', LANDING_BASE);
+  const baseDir = join(process.cwd(), 'app');
   const entries = readdirSync(baseDir, { withFileTypes: true });
   return entries
     .filter((e) => e.isDirectory())
-    .filter((e) => !e.name.startsWith('_') && e.name !== 'api')
+    .filter((e) => e.name.startsWith('pecas-'))
     .filter((e) => existsSync(join(baseDir, e.name, 'config.json')))
     .map((e) => e.name)
     .sort();
@@ -21,7 +18,7 @@ function findLandingSlugs() {
 export default function sitemap() {
   const now = new Date();
   return findLandingSlugs().map((slug) => ({
-    url: `${SITE_URL}/${LANDING_BASE}/${slug}/`,
+    url: `${SITE_URL}/${slug}/`,
     lastModified: now,
     changeFrequency: 'monthly',
     priority: 0.9,

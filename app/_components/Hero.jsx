@@ -9,8 +9,9 @@ export default function Hero({ cfg, heroLayout, heroImage }) {
   const slug = cfg.slug;
   const fileName = heroImage === 'dust' ? cfg.hero.foto_dust : cfg.hero.foto_static;
   const base = fileName.replace(/^assets\//, '').replace(/\.webp$/, '');
-  const desktopSrc = `/gasolina/${slug}/assets/${base}.webp`;
-  const mobileSrc = `/gasolina/${slug}/assets/${base}-600.webp`;
+  // Path do asset = canonical_path da LP (ex: /pecas-lifan-320/assets/...)
+  const desktopSrc = `${cfg.seo.canonical_path}assets/${base}.webp`;
+  const mobileSrc = `${cfg.seo.canonical_path}assets/${base}-600.webp`;
 
   const fabricante = getFabricanteLabel(cfg);
   const garantiaLabel = fabricante ? `GARANTIA ${fabricante.toUpperCase()}` : 'GARANTIA DE FÁBRICA';

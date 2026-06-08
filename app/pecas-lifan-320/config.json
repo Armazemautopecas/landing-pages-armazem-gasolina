@@ -1,8 +1,8 @@
 {
   "_doc": "LP Lifan 320 — fork do scaffold do diesel sem SearchSection. Veículo-cêntrica (não vende peça única).",
-  "slug": "lifan-320",
+  "slug": "pecas-lifan-320",
   "categoria": "veiculo",
-  "veiculo_key": "lifan-320",
+  "veiculo_key": "pecas-lifan-320",
   "veiculo": {
     "marca_aliases": [
       "LIFAN"
@@ -131,7 +131,7 @@
     "og_image": "assets/lifan-320-static.png",
     "og_image_alt": "Lifan 320 em destaque",
     "twitter_description": "Peças, filtros, freio e embreagem pro Lifan 320 — atendimento direto no WhatsApp.",
-    "canonical_path": "/gasolina/lifan-320/",
+    "canonical_path": "/pecas-lifan-320/",
     "product": {
       "name": "Peças para Lifan 320",
       "description": "Peças, filtros, freio, embreagem, motor e elétrica para Lifan 320 — linha asiática completa, com procedência garantida e despacho pra todo Brasil.",

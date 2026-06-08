@@ -15,7 +15,7 @@ const AUTOPARTS_STORE = {
   // "$$" = mid-price retail (auto parts originais ficam nessa faixa).
   priceRange: '$$',
   // Logo Armazém — Schema.org LocalBusiness.image (Google Rich Results recomenda)
-  image: `${SITE_URL}/gasolina/logo-armazem.png`,
+  image: `${SITE_URL}/logo-armazem.png`,
   // Endereço da Matriz (Centro de Distribuição) — de onde os pedidos saem.
   // Filial (R. São João 108 E, CEP 89802-240) é escritório administrativo,
   // não usado aqui. Ver memory reference_cnpj_armazem.md.

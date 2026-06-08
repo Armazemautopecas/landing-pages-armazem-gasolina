@@ -1,14 +1,14 @@
 {
-  "_doc": "LP Lifan 530 — fork do scaffold do diesel sem SearchSection. Veículo-cêntrica (não vende peça única).",
-  "slug": "lifan-530",
+  "_doc": "LP Lifan Foison — fork do scaffold do diesel sem SearchSection. Veículo-cêntrica (não vende peça única).",
+  "slug": "pecas-lifan-foison",
   "categoria": "veiculo",
-  "veiculo_key": "lifan-530",
+  "veiculo_key": "pecas-lifan-foison",
   "veiculo": {
     "marca_aliases": [
       "LIFAN"
     ],
     "modelo_aliases": [
-      "530"
+      "Foison"
     ]
   },
   "trust_bar": {
@@ -42,11 +42,11 @@
   "hero": {
     "eyebrow": "PEÇAS E MANUTENÇÃO PRO SEU LIFAN.",
     "h1_linha1": "PEÇAS PRA",
-    "h1_linha2": "LIFAN 530",
+    "h1_linha2": "LIFAN FOISON",
     "h1_sub": "Linha asiática é nosso nicho.",
-    "sub": "Filtros, freio, embreagem, motor e elétrica — atendimento direto pra deixar seu 530 rodando bem.",
-    "foto_static": "assets/lifan-530-static.webp",
-    "foto_alt": "Lifan 530 em destaque",
+    "sub": "Filtros, freio, embreagem, motor e elétrica — atendimento direto pra deixar seu Foison rodando bem.",
+    "foto_static": "assets/lifan-foison-static.webp",
+    "foto_alt": "Lifan Foison em destaque",
     "bg_position_mobile": "50% 50%",
     "bg_position_desktop": "62% center",
     "cta_mobile_label": "Falar com vendedor"
@@ -59,28 +59,28 @@
       {
         "num": "01",
         "ttl": "Linha asiática é o que a gente faz.",
-        "body": "Atendemos Lifan, Effa, JAC, Chery e outras marcas chinesas há mais de uma década. Trabalhamos com peças direto de fábrica e mantemos estoque próprio do 530 em Chapecó/SC."
+        "body": "Atendemos Lifan, Effa, JAC, Chery e outras marcas chinesas há mais de uma década. Trabalhamos com peças direto de fábrica e mantemos estoque próprio do Foison em Chapecó/SC."
       },
       {
         "num": "02",
         "ttl": "Compatibilidade conferida.",
-        "body": "Antes de despachar, a gente confere o ano e o chassi do seu 530 pra garantir que a peça serve. Sem ‘deve servir’, sem retrabalho."
+        "body": "Antes de despachar, a gente confere o ano e o chassi do seu Foison pra garantir que a peça serve. Sem ‘deve servir’, sem retrabalho."
       },
       {
         "num": "03",
         "ttl": "Despacho rápido pra todo Brasil.",
-        "body": "Estoque próprio em Chapecó/SC, saída em até 24h úteis da confirmação, entrega rastreada. Seu 530 não fica parado esperando."
+        "body": "Estoque próprio em Chapecó/SC, saída em até 24h úteis da confirmação, entrega rastreada. Seu Foison não fica parado esperando."
       }
     ]
   },
   "wa": {
-    "hero_link": "Olá, quero falar com vendedor sobre peças pro meu Lifan 530.",
-    "fab_default": "Olá, cheguei pela landing page e quero falar sobre peças pro meu Lifan 530.",
-    "final_cta": "Olá, quero falar com vendedor sobre peças pro meu Lifan 530."
+    "hero_link": "Olá, quero falar com vendedor sobre peças pro meu Lifan Foison.",
+    "fab_default": "Olá, cheguei pela landing page e quero falar sobre peças pro meu Lifan Foison.",
+    "final_cta": "Olá, quero falar com vendedor sobre peças pro meu Lifan Foison."
   },
   "final_cta": {
     "h2_l1": "Pronto pra",
-    "h2_l2_red_l1": "colocar o 530",
+    "h2_l2_red_l1": "colocar o Foison",
     "h2_l2_red_l2": "em dia",
     "sub_pre": "Manda mensagem que a gente cota, confere compatibilidade e despacha.",
     "sub_anchor": "",
@@ -92,11 +92,11 @@
   "content": {
     "faqs": {
       "sintomas": {
-        "q": "Como sei se preciso trocar peça do meu Lifan 530?",
+        "q": "Como sei se preciso trocar peça do meu Lifan Foison?",
         "a": "Os sinais variam por componente: filtro entupido aumenta consumo e dá perda de potência; pastilha gasta range avisa com chiado ou vibração no freio; embreagem cansada patina ou pega alto demais. Se notou algum sintoma, manda no WhatsApp descrevendo — a gente ajuda a identificar."
       },
       "qualidade": {
-        "q": "Qual a procedência das peças do Lifan 530?",
+        "q": "Qual a procedência das peças do Lifan Foison?",
         "a": "Trabalhamos com peças originais (genuínas Lifan/equivalentes de fábrica) e primeira linha homologada. Pra cada item indicamos as opções disponíveis e preços — você escolhe conforme sua necessidade. Não trabalhamos com paralelo de procedência duvidosa."
       },
       "calibracao": {
@@ -104,7 +104,7 @@
         "a": "Sim. Atendemos toda linha asiática: Lifan, Effa, JAC, Chery, BYD, Hafei, Geely e outras. Conhecemos as particularidades de cada modelo e sabemos onde achar peças que outras lojas dizem \"não tem\"."
       },
       "preco": {
-        "q": "Quanto custa fazer manutenção do Lifan 530?",
+        "q": "Quanto custa fazer manutenção do Lifan Foison?",
         "a": "Varia muito por categoria — filtros são acessíveis, kit embreagem ou correia dentada têm valor maior. A linha asiática tem manutenção mais barata que importados premium. Manda no WhatsApp o que precisa que a gente cota na hora."
       },
       "compatibilidade": {
@@ -126,20 +126,20 @@
     }
   },
   "seo": {
-    "title": "Peças e Manutenção Lifan 530 — Armazém Auto Peças",
-    "description": "Peças, filtros, freio e embreagem pro Lifan 530 com atendimento direto no WhatsApp. Despacho pra todo Brasil. Compra segura.",
-    "og_image": "assets/lifan-530-static.png",
-    "og_image_alt": "Lifan 530 em destaque",
-    "twitter_description": "Peças, filtros, freio e embreagem pro Lifan 530 — atendimento direto no WhatsApp.",
-    "canonical_path": "/gasolina/lifan-530/",
+    "title": "Peças e Manutenção Lifan Foison — Armazém Auto Peças",
+    "description": "Peças, filtros, freio e embreagem pro Lifan Foison com atendimento direto no WhatsApp. Despacho pra todo Brasil. Compra segura.",
+    "og_image": "assets/lifan-foison-static.png",
+    "og_image_alt": "Lifan Foison em destaque",
+    "twitter_description": "Peças, filtros, freio e embreagem pro Lifan Foison — atendimento direto no WhatsApp.",
+    "canonical_path": "/pecas-lifan-foison/",
     "product": {
-      "name": "Peças para Lifan 530",
-      "description": "Peças, filtros, freio, embreagem, motor e elétrica para Lifan 530 — linha asiática completa, com procedência garantida e despacho pra todo Brasil.",
+      "name": "Peças para Lifan Foison",
+      "description": "Peças, filtros, freio, embreagem, motor e elétrica para Lifan Foison — linha asiática completa, com procedência garantida e despacho pra todo Brasil.",
       "brands": [
         "Lifan"
       ],
       "vehicles": [
-        "Lifan 530"
+        "Lifan Foison"
       ],
       "price_range": "R$ 50 - R$ 1.500",
       "free_shipping": false

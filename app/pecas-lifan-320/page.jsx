@@ -1,15 +1,15 @@
 import CFG from './config.json';
-import '../../_components/styles.css';
-import LandingClient from '../../_components/LandingClient';
-import TrustBar from '../../_components/TrustBar';
-import WhySection from '../../_components/WhySection';
-import Testimonials from '../../_components/Testimonials';
-import FAQ from '../../_components/FAQ';
-import FinalCTA from '../../_components/FinalCTA';
-import Footer from '../../_components/Footer';
-import { WhatsAppIcon } from '../../_components/atoms';
-import { waLink } from '../../_components/lib/wa';
-import { buildJsonLd } from '../../_components/lib/jsonld';
+import '../_components/styles.css';
+import LandingClient from '../_components/LandingClient';
+import TrustBar from '../_components/TrustBar';
+import WhySection from '../_components/WhySection';
+import Testimonials from '../_components/Testimonials';
+import FAQ from '../_components/FAQ';
+import FinalCTA from '../_components/FinalCTA';
+import Footer from '../_components/Footer';
+import { WhatsAppIcon } from '../_components/atoms';
+import { waLink } from '../_components/lib/wa';
+import { buildJsonLd } from '../_components/lib/jsonld';
 
 export const dynamic = 'force-static';
 
@@ -48,7 +48,7 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <link rel="preload" as="image" href={`/gasolina/${CFG.slug}/${CFG.hero.foto_static}`} type="image/webp" fetchPriority="high" />
+      <link rel="preload" as="image" href={`${CFG.seo.canonical_path}${CFG.hero.foto_static}`} type="image/webp" fetchPriority="high" />
 
       <LandingClient cfg={CFG}>
         <TrustBar cfg={CFG} style="numbers" />
