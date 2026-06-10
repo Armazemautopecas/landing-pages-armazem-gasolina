@@ -21,6 +21,7 @@ const IMMUTABLE_CACHE = [
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  generateBuildId: async () => `cache-buster-${Date.now()}`,
   trailingSlash: true,
   poweredByHeader: false,
   async headers() {
