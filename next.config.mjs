@@ -21,6 +21,15 @@ const IMMUTABLE_CACHE = [
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Curativo 2026-06-10: Bunny tem ~7 chunks /_next/static/chunks/* com 404
+  // cacheado de 2026-06-09 19:22 GMT que não responde a "Purge Cache" do
+  // painel nem a purge full repetido. Apontar assetPrefix direto pro domínio
+  // Vercel faz o browser carregar JS/CSS sem passar pela Bunny — Vercel
+  // responde 200 limpo + CORS aberto. HTML continua via Bunny (funciona).
+  // REVERTER quando Sidnei conseguir limpar o cache podre: deletar esta
+  // linha e o Next volta a servir assets em paths relativos passando pela
+  // Bunny normalmente.
+  assetPrefix: 'https://landing-pages-armazem-gasolina.vercel.app',
   trailingSlash: true,
   poweredByHeader: false,
   async headers() {
