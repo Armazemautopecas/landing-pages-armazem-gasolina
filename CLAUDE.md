@@ -51,3 +51,55 @@ Push na `main` → **Vercel deploya automático**. Toda branch aberta vira uma U
 - Nome da pasta/slug = veículo curto (`amarok`, `hr`, `bongo`, `hilux`). O Bunny serve em `armazemautopecas.com.br/injecao-diesel/<slug>/` via Edge Rule de prefixo.
 - CTA único de WhatsApp → `wa.me/554998829474`.
 - **Nova LP:** usar a skill `armazem-lp-generator` do Claude Code (coleta os campos e gera os arquivos).
+
+---
+
+## Infra Bunny/Vercel — estado pós-incidente de 10/06/2026
+
+### Arquitetura atual (VÁLIDA — não mexer sem ler isto)
+www.armazemautopecas.com.br → Bunny CDN, pullzone 5788032 (admin: Sidnei). 4 origens:
+1. **Default:** Azion/Tray (loja e-commerce)
+2. **`/injecao-diesel/*` + `/_next/*`** → landing-pages-armazem-diesel.vercel.app (Host Header Override do diesel). O path `/_next/*` PERTENCE AO PROJETO DIESEL.
+3. **`/pecas-lifan-*`** → landing-pages-armazem-gasolina.vercel.app (Host Header Override do gasolina)
+4. **`/pecas-mercedes-benz*` + `/pecas-para/lifan-x60*`** → mercedes.pages.net.br (GreatPages — LPs antigas nossas, anteriores ao projeto Vercel)
+
+### Decisão estrutural deste projeto (NUNCA reverter sem plano)
+O `next.config.mjs` usa `assetPrefix` condicional (`VERCEL_ENV === 'production'`) apontando para
+https://landing-pages-armazem-gasolina.vercel.app — os chunks JS/CSS deste projeto NÃO passam
+pela Bunny. Motivo: dois projetos Next.js não podem dividir `/_next/*` no mesmo domínio, e o
+diesel é o dono desse path. Commits relevantes: e0dca8e (versão incondicional), 98af5f9 (condicional).
+LPs novas deste projeto devem usar slug no padrão `/pecas-lifan-*` — caem automaticamente na
+rule existente da Bunny, sem precisar de configuração nova.
+
+### Incidente 10/06 — causas confirmadas
+1. Chunks do gasolina retornavam 404 via Bunny: `/_next/*` roteava pro projeto diesel (colisão de path). Fix: assetPrefix.
+2. Loja servindo home MOBILE pra desktop + busca devolvendo resultado de outro termo: a Bunny cacheava
+   páginas dinâmicas da Tray por 4h ignorando query string e user-agent. Fix: cache da loja neutralizado
+   (entradas nascem expiradas — `cdn-cache: EXPIRED` revalida sempre na origem).
+3. LPs caíram pro Azion (404) às 15:04: a rule `/pecas-lifan-*` foi desabilitada durante ajustes no painel. Fix: rule recriada.
+4. Fósseis: respostas erradas cacheadas com `cache-control: max-age=14400` sobreviveram a purges
+   totais e só morreram por purge por URL individual ou expiração do TTL.
+
+### Regras operacionais (consolidar no post-mortem)
+- **Purge total da pullzone 5788032 NÃO é confiável** — deixou entradas vivas 2x no mesmo dia.
+  Fallback: purge por URL exata (painel "Purge URL" ou API `https://api.bunny.net/purge?url=...`).
+- **Print de painel não é prova de funcionamento. Curl é prova.** Toda mudança na Bunny (de qualquer
+  pessoa, inclusive eu) só é considerada aplicada após validação com curl — em 10/06 várias mudanças
+  reportadas como feitas não estavam ativas.
+- Decodificação de headers: `cdn-cache` (HIT/MISS/EXPIRED) + `cdn-cachedat` = cache da Bunny;
+  `x-azion-*` ou `PHPSESSID` = resposta veio da Tray; `x-vercel-*` = veio do Vercel;
+  `cdn-pullzone: 5788032` confirma a zona. Query string nova (`?bust=N`) fura o cache da Bunny.
+- Horários: Claude Code, Vercel e headers da Bunny reportam em UTC; horário local = UTC-3.
+
+### Pendências abertas
+- [ ] Bateria overnight 11/06 às 8h:
+      `for p in 320 530 620 x80 foison; do curl -sI "https://www.armazemautopecas.com.br/pecas-lifan-$p/" | grep -m1 HTTP; done`
+      + home ×5 com UA desktop (grep MOBILE deve dar 0) + busca de 2 termos distintos
+      (conteúdos diferentes) + `/injecao-diesel/amarok/` retornando 200.
+- [ ] Post-mortem: inventário de origens do domínio, processo de mudança em produção
+      (10/06 foi via WhatsApp sem registro), redação da regra operacional definitiva.
+- [ ] Documentar o que exatamente foi alterado no cache da loja em 10/06 (tela/print) — ainda não informado.
+- [ ] Ciclo 2 (logado, não iniciar): reativar cache de edge ESCOPADO só nos paths Vercel
+      (hoje tudo revalida a cada request — funciona, mas desperdiça performance de edge).
+- [ ] Logado: migrar LP Lifan X60 do GreatPages pra este projeto. Slug obrigatório
+      `/pecas-lifan-x60` (aproveita a rule existente) + 301 do `/pecas-para/lifan-x60` antigo.
