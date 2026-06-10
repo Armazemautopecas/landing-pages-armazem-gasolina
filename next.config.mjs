@@ -19,17 +19,18 @@ const IMMUTABLE_CACHE = [
   { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
 ];
 
+// 2026-06-10: a pullzone da Bunny tem dois projetos Next.js (diesel + gasolina)
+// disputando o mesmo path /_next/*, então chunks deste projeto retornam 404
+// cacheado quando passam pela Bunny. Solução: apontar assetPrefix direto pro
+// domínio Vercel do projeto, tirando os assets da rota Bunny de forma
+// permanente. HTML continua servido pela Bunny normalmente.
+// Condicional pra preservar dev local + previews Vercel — só produção usa
+// o prefixo absoluto (VERCEL_ENV === 'production').
+const isProd = process.env.VERCEL_ENV === 'production';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Curativo 2026-06-10: Bunny tem ~7 chunks /_next/static/chunks/* com 404
-  // cacheado de 2026-06-09 19:22 GMT que não responde a "Purge Cache" do
-  // painel nem a purge full repetido. Apontar assetPrefix direto pro domínio
-  // Vercel faz o browser carregar JS/CSS sem passar pela Bunny — Vercel
-  // responde 200 limpo + CORS aberto. HTML continua via Bunny (funciona).
-  // REVERTER quando Sidnei conseguir limpar o cache podre: deletar esta
-  // linha e o Next volta a servir assets em paths relativos passando pela
-  // Bunny normalmente.
-  assetPrefix: 'https://landing-pages-armazem-gasolina.vercel.app',
+  assetPrefix: isProd ? 'https://landing-pages-armazem-gasolina.vercel.app' : undefined,
   trailingSlash: true,
   poweredByHeader: false,
   async headers() {
