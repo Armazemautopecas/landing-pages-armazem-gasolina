@@ -71,14 +71,22 @@ diesel é o dono desse path. Commits relevantes: e0dca8e (versão incondicional)
 LPs novas deste projeto devem usar slug no padrão `/pecas-lifan-*` — caem automaticamente na
 rule existente da Bunny, sem precisar de configuração nova.
 
-### Incidente 10/06 — causas confirmadas
+### Incidente 10–11/06 — causas confirmadas
 1. Chunks do gasolina retornavam 404 via Bunny: `/_next/*` roteava pro projeto diesel (colisão de path). Fix: assetPrefix.
 2. Loja servindo home MOBILE pra desktop + busca devolvendo resultado de outro termo: a Bunny cacheava
    páginas dinâmicas da Tray por 4h ignorando query string e user-agent. Fix: cache da loja neutralizado
    (entradas nascem expiradas — `cdn-cache: EXPIRED` revalida sempre na origem).
-3. LPs caíram pro Azion (404) às 15:04: a rule `/pecas-lifan-*` foi desabilitada durante ajustes no painel. Fix: rule recriada.
+3. LPs caíram pro Azion (404) às 15:04 de 10/06: a rule `/pecas-lifan-*` foi desabilitada durante ajustes no painel. Fix: rule recriada.
 4. Fósseis: respostas erradas cacheadas com `cache-control: max-age=14400` sobreviveram a purges
    totais e só morreram por purge por URL individual ou expiração do TTL.
+5. **11/06 entre madrugada e ~14h UTC**: CNAME do `www` foi alterado pra apontar **direto pra Tray/Azion**
+   (sem passar pela Bunny). Bypassou a pullzone 5788032 completamente. Impacto: 8 LPs Vercel
+   (5 gasolina + 3 diesel) caíram pra 404 simultaneamente (Azion não tem essas rotas, fallback 404).
+   Home da loja continuou OK (sempre foi servida pela Tray). Detectado por curl mostrando `server: nginx`
+   + `x-azion-request-id` + ausência de `cdn-pullzone: 5788032` na home. Restaurado por Sidnei
+   (CNAME voltou pra IP da Bunny `193.162.131.16` por volta das 14:26 UTC). Cache da pullzone foi
+   preservado durante a janela (`age` mostrava 18h após volta, evidência de que a zona seguiu existindo).
+   Origem real da troca **não documentada** — Sidnei deveria descrever o que/quando/por quê.
 
 ### Regras operacionais (consolidar no post-mortem)
 - **Purge total da pullzone 5788032 NÃO é confiável** — deixou entradas vivas 2x no mesmo dia.
