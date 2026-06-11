@@ -1,0 +1,156 @@
+{
+  "_doc": "LP Senna F1 — easter egg / piada interna. Reconhece que não atende F1 e canaliza pra asiáticos. Foto da F1 do Senna na pasta do Drive.",
+  "slug": "senna-f1",
+  "categoria": "veiculo",
+  "veiculo_key": "senna-f1",
+  "veiculo": {
+    "marca_aliases": [
+      "AYRTON SENNA",
+      "SENNA",
+      "WILLIAMS",
+      "MCLAREN"
+    ],
+    "modelo_aliases": [
+      "F1",
+      "FÓRMULA 1"
+    ]
+  },
+  "trust_bar": {
+    "items": [
+      {
+        "icon": "shield",
+        "ttl": "Peças Certificadas",
+        "sub": "Procedência garantida",
+        "num": "100%"
+      },
+      {
+        "icon": "box",
+        "ttl": "Despacho Rápido",
+        "sub": "Saída em 24h úteis",
+        "num": "24h"
+      },
+      {
+        "icon": "gear",
+        "ttl": "Anos no Mercado",
+        "sub": "Especialista em linha asiática",
+        "num": "+12"
+      },
+      {
+        "icon": "factory",
+        "ttl": "Pedidos Entregues",
+        "sub": "Em todo o Brasil",
+        "num": "+20k"
+      }
+    ]
+  },
+  "hero": {
+    "eyebrow": "BRINCADEIRA. NA REAL A GENTE ATENDE É ASIÁTICO.",
+    "h1_linha1": "PEÇAS PRA",
+    "h1_linha2": "F1 DO SENNA",
+    "h1_sub": "Ah, essa não.",
+    "sub": "Mas se você tem qualquer asiático que rode no chão — Chery, Lifan, SsangYong, JAC, Effa — manda mensagem que a gente cota.",
+    "foto_static": "assets/senna-f1-static.webp",
+    "foto_alt": "F1 do Ayrton Senna",
+    "bg_position_mobile": "50% 50%",
+    "bg_position_desktop": "62% center",
+    "cta_mobile_label": "Falar com vendedor"
+  },
+  "why": {
+    "h2_l1": "F1 fica com o Senna.",
+    "h2_l2": "Asiáticos,",
+    "h2_l2_red": "com a gente",
+    "items": [
+      {
+        "num": "01",
+        "ttl": "Esse aqui não rola.",
+        "body": "F1 do Senna é peça de museu, de coleção, de história. A gente reconhece e respeita. Aqui não tem nem catálogo nem aplicação — é honestidade desde o começo."
+      },
+      {
+        "num": "02",
+        "ttl": "Asiático é com a gente há +12 anos.",
+        "body": "Atendemos Lifan, Effa, JAC, Chery, SsangYong, BYD, Hafei, Geely e outras marcas asiáticas. Estoque próprio em Chapecó/SC, peças direto de fábrica."
+      },
+      {
+        "num": "03",
+        "ttl": "Compatibilidade conferida.",
+        "body": "Antes de despachar, a gente confere o ano e o chassi do seu carro pra garantir que a peça serve. Sem ‘deve servir’, sem retrabalho. Bem diferente de pneu de F1."
+      }
+    ]
+  },
+  "wa": {
+    "hero_link": "Olá, cheguei pela página da F1 do Senna kkk. Quero falar com vendedor sobre peças pro meu asiático.",
+    "fab_default": "Olá, cheguei pela landing page (a do Senna, sim) e quero falar sobre peças pro meu asiático.",
+    "final_cta": "Olá, deixa a F1 pro Senna. Quero falar com vendedor sobre peças pro meu asiático."
+  },
+  "final_cta": {
+    "h2_l1": "Pronto pra",
+    "h2_l2_red_l1": "deixar a F1",
+    "h2_l2_red_l2": "pro Senna?",
+    "sub_pre": "Manda mensagem do seu asiático que a gente cota, confere compatibilidade e despacha.",
+    "sub_anchor": "",
+    "sub_post": "",
+    "btn": "Falar com o vendedor agora",
+    "microtext_pre": "WhatsApp",
+    "microtext_post": "— resposta em minutos, de segunda a sexta."
+  },
+  "content": {
+    "faqs": {
+      "sintomas": {
+        "q": "Como sei se a F1 do Senna precisa de peça?",
+        "a": "Não precisa, ela tá num museu. Pra qualquer asiático que você dirige no dia-a-dia, manda no WhatsApp descrevendo o sintoma — filtro entupido aumenta consumo, pastilha gasta avisa com chiado, embreagem cansada patina."
+      },
+      "qualidade": {
+        "q": "Vocês vendem peças originais?",
+        "a": "Pra Senna F1 só de coleção, e a gente não tem. Pra Chery, Lifan, SsangYong, JAC, Effa e outras asiáticas, trabalhamos com peças originais (genuínas/equivalentes de fábrica) e primeira linha homologada."
+      },
+      "calibracao": {
+        "q": "Vocês atendem outras marcas além de carro de corrida?",
+        "a": "Sim, basicamente. Atendemos toda linha asiática: Lifan, Effa, JAC, Chery, SsangYong, BYD, Hafei, Geely e outras. Pra Senna F1, só pra rir mesmo."
+      },
+      "preco": {
+        "q": "Quanto custa uma F1 do Senna?",
+        "a": "Foge total do nosso catálogo. Pra peça de qualquer asiático seu — preço varia por categoria (filtros são acessíveis, kit embreagem ou correia dentada têm valor maior). Manda no WhatsApp o que precisa que a gente cota na hora."
+      },
+      "compatibilidade": {
+        "q": "Como sei que a peça serve no meu carro?",
+        "a": "Pedimos o ano de fabricação e a versão (motor, câmbio) ou o número do chassi. Com isso a gente confirma compatibilidade antes de despachar. Manda uma foto do antigo se ajudar."
+      },
+      "troca": {
+        "q": "E se a peça não servir?",
+        "a": "A gente resolve: troca sem custo ou reembolso integral. Por isso pedimos os dados de compatibilidade antes — pra evitar essa situação."
+      },
+      "prazo": {
+        "q": "Prazo de entrega e formas de pagamento?",
+        "a": "Despacho no mesmo dia útil da confirmação do pagamento. Entrega rastreada pra todo Brasil de Chapecó/SC. PIX, boleto e cartão em até 10x. Toda compra sai com nota fiscal eletrônica."
+      },
+      "pagamento": {
+        "q": "Atendem oficina e frotista?",
+        "a": "Sim, temos condição especial pra oficina parceira e frota. Chame no WhatsApp informando o volume e a gente alinha preço e prazo."
+      }
+    }
+  },
+  "seo": {
+    "title": "F1 do Senna? Não. Asiáticos? Sim — Armazém Auto Peças",
+    "description": "Peças pra F1 do Senna a gente não tem (era brincadeira). Mas atendemos qualquer asiático no Brasil — Chery, Lifan, SsangYong, JAC. Manda no WhatsApp.",
+    "og_image": "assets/senna-f1-static.png",
+    "og_image_alt": "F1 do Ayrton Senna — brincadeira da Armazém Auto Peças",
+    "twitter_description": "F1 do Senna a gente não tem. Asiático sim. Manda no WhatsApp.",
+    "canonical_path": "/lp/senna-f1/",
+    "product": {
+      "name": "Peças para Asiáticos (a brincadeira da F1 fica com o Senna)",
+      "description": "Atendemos toda linha asiática no Brasil — Lifan, Effa, JAC, Chery, SsangYong, BYD, Hafei, Geely e outras. Pra F1 do Senna, só nostalgia.",
+      "brands": [
+        "Lifan",
+        "Effa",
+        "JAC",
+        "Chery",
+        "SsangYong"
+      ],
+      "vehicles": [
+        "Linha asiática"
+      ],
+      "price_range": "R$ 50 - R$ 1.500",
+      "free_shipping": false
+    }
+  }
+}
