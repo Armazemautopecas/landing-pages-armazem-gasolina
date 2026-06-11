@@ -1,0 +1,148 @@
+{
+  "_doc": "LP Lifan X60 — fork do scaffold do diesel sem SearchSection. Veículo-cêntrica (não vende peça única).",
+  "slug": "pecas-lifan-x60",
+  "categoria": "veiculo",
+  "veiculo_key": "pecas-lifan-x60",
+  "veiculo": {
+    "marca_aliases": [
+      "LIFAN"
+    ],
+    "modelo_aliases": [
+      "X60"
+    ]
+  },
+  "trust_bar": {
+    "items": [
+      {
+        "icon": "shield",
+        "ttl": "Peças Certificadas",
+        "sub": "Procedência garantida",
+        "num": "100%"
+      },
+      {
+        "icon": "box",
+        "ttl": "Despacho Rápido",
+        "sub": "Saída em 24h úteis",
+        "num": "24h"
+      },
+      {
+        "icon": "gear",
+        "ttl": "Anos no Mercado",
+        "sub": "Especialista em linha asiática",
+        "num": "+12"
+      },
+      {
+        "icon": "factory",
+        "ttl": "Pedidos Entregues",
+        "sub": "Em todo o Brasil",
+        "num": "+20k"
+      }
+    ]
+  },
+  "hero": {
+    "eyebrow": "PEÇAS E MANUTENÇÃO PRO SEU LIFAN.",
+    "h1_linha1": "PEÇAS PRA",
+    "h1_linha2": "LIFAN X60",
+    "h1_sub": "Linha asiática é nosso nicho.",
+    "sub": "Filtros, freio, embreagem, motor e elétrica — atendimento direto pra deixar seu X60 rodando bem.",
+    "foto_static": "assets/lifan-x60-static.webp",
+    "foto_alt": "Lifan X60 em destaque",
+    "bg_position_mobile": "50% 50%",
+    "bg_position_desktop": "62% center",
+    "cta_mobile_label": "Falar com vendedor"
+  },
+  "why": {
+    "h2_l1": "Asiáticos com expertise.",
+    "h2_l2": "",
+    "h2_l2_red": "+12 anos no nicho",
+    "items": [
+      {
+        "num": "01",
+        "ttl": "Linha asiática é o que a gente faz.",
+        "body": "Atendemos Lifan, Effa, JAC, Chery e outras marcas chinesas há mais de uma década. Trabalhamos com peças direto de fábrica e mantemos estoque próprio do X60 em Chapecó/SC."
+      },
+      {
+        "num": "02",
+        "ttl": "Compatibilidade conferida.",
+        "body": "Antes de despachar, a gente confere o ano e o chassi do seu X60 pra garantir que a peça serve. Sem ‘deve servir’, sem retrabalho."
+      },
+      {
+        "num": "03",
+        "ttl": "Despacho rápido pra todo Brasil.",
+        "body": "Estoque próprio em Chapecó/SC, saída em até 24h úteis da confirmação, entrega rastreada. Seu X60 não fica parado esperando."
+      }
+    ]
+  },
+  "wa": {
+    "hero_link": "Olá, quero falar com vendedor sobre peças pro meu Lifan X60.",
+    "fab_default": "Olá, cheguei pela landing page e quero falar sobre peças pro meu Lifan X60.",
+    "final_cta": "Olá, quero falar com vendedor sobre peças pro meu Lifan X60."
+  },
+  "final_cta": {
+    "h2_l1": "Pronto pra",
+    "h2_l2_red_l1": "colocar o X60",
+    "h2_l2_red_l2": "em dia",
+    "sub_pre": "Manda mensagem que a gente cota, confere compatibilidade e despacha.",
+    "sub_anchor": "",
+    "sub_post": "",
+    "btn": "Falar com o vendedor agora",
+    "microtext_pre": "WhatsApp",
+    "microtext_post": "— resposta em minutos, de segunda a sexta."
+  },
+  "content": {
+    "faqs": {
+      "sintomas": {
+        "q": "Como sei se preciso trocar peça do meu Lifan X60?",
+        "a": "Os sinais variam por componente: filtro entupido aumenta consumo e dá perda de potência; pastilha gasta range avisa com chiado ou vibração no freio; embreagem cansada patina ou pega alto demais. Se notou algum sintoma, manda no WhatsApp descrevendo — a gente ajuda a identificar."
+      },
+      "qualidade": {
+        "q": "Qual a procedência das peças do Lifan X60?",
+        "a": "Trabalhamos com peças originais (genuínas Lifan/equivalentes de fábrica) e primeira linha homologada. Pra cada item indicamos as opções disponíveis e preços — você escolhe conforme sua necessidade. Não trabalhamos com paralelo de procedência duvidosa."
+      },
+      "calibracao": {
+        "q": "Vocês atendem outras marcas chinesas além de Lifan?",
+        "a": "Sim. Atendemos toda linha asiática: Lifan, Effa, JAC, Chery, BYD, Hafei, Geely e outras. Conhecemos as particularidades de cada modelo e sabemos onde achar peças que outras lojas dizem \"não tem\"."
+      },
+      "preco": {
+        "q": "Quanto custa fazer manutenção do Lifan X60?",
+        "a": "Varia muito por categoria — filtros são acessíveis, kit embreagem ou correia dentada têm valor maior. A linha asiática tem manutenção mais barata que importados premium. Manda no WhatsApp o que precisa que a gente cota na hora."
+      },
+      "compatibilidade": {
+        "q": "Como sei que a peça serve no meu carro?",
+        "a": "Pedimos o ano de fabricação e a versão (motor, câmbio) ou o número do chassi. Com isso a gente confirma compatibilidade antes de despachar. Manda uma foto do antigo se ajudar."
+      },
+      "troca": {
+        "q": "E se a peça não servir?",
+        "a": "A gente resolve: troca sem custo ou reembolso integral. Por isso pedimos os dados de compatibilidade antes — pra evitar essa situação. Mas se acontecer, é simples."
+      },
+      "prazo": {
+        "q": "Prazo de entrega e formas de pagamento?",
+        "a": "Despacho no mesmo dia útil da confirmação do pagamento. Entrega rastreada pra todo Brasil de Chapecó/SC. PIX, boleto e cartão em até 10x. Toda compra sai com nota fiscal eletrônica."
+      },
+      "pagamento": {
+        "q": "Atendem oficina e frotista?",
+        "a": "Sim, temos condição especial pra oficina parceira e frota. Chame no WhatsApp informando o volume e a gente alinha preço e prazo."
+      }
+    }
+  },
+  "seo": {
+    "title": "Peças e Manutenção Lifan X60 — Armazém Auto Peças",
+    "description": "Peças, filtros, freio e embreagem pro Lifan X60 com atendimento direto no WhatsApp. Despacho pra todo Brasil. Compra segura.",
+    "og_image": "assets/lifan-x60-static.png",
+    "og_image_alt": "Lifan X60 em destaque",
+    "twitter_description": "Peças, filtros, freio e embreagem pro Lifan X60 — atendimento direto no WhatsApp.",
+    "canonical_path": "/pecas-lifan-x60/",
+    "product": {
+      "name": "Peças para Lifan X60",
+      "description": "Peças, filtros, freio, embreagem, motor e elétrica para Lifan X60 — linha asiática completa, com procedência garantida e despacho pra todo Brasil.",
+      "brands": [
+        "Lifan"
+      ],
+      "vehicles": [
+        "Lifan X60"
+      ],
+      "price_range": "R$ 50 - R$ 1.500",
+      "free_shipping": false
+    }
+  }
+}
