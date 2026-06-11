@@ -38,6 +38,7 @@ const nextConfig = {
       { source: '/:path*', headers: securityHeaders },
       { source: '/fonts/:path*', headers: IMMUTABLE_CACHE },
       { source: '/pecas-lifan-:model/assets/:path*', headers: IMMUTABLE_CACHE },
+      { source: '/lp/:model/assets/:path*', headers: IMMUTABLE_CACHE },
     ];
   },
 };

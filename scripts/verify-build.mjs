@@ -3,8 +3,9 @@ import { readFile, readdir } from 'node:fs/promises';
 import { join } from 'node:path';
 
 const APP_DIR = new URL('../app/', import.meta.url).pathname;
+const DATA_LP_DIR = new URL('../data/lp/', import.meta.url).pathname;
 const SERVER_DIR = new URL('../.next/server/app/', import.meta.url).pathname;
-const LP_PREFIX = 'pecas-lifan-';
+const STATIC_LP_PREFIX = 'pecas-lifan-';
 
 const MIN_SIZE = 25_000;
 
@@ -21,25 +22,46 @@ const FORBIDDEN_PATTERNS = [
   { name: '<main></main> shell', re: /<main>\s*<\/main>/ },
 ];
 
-async function findLandingPages() {
-  const entries = await readdir(APP_DIR, { withFileTypes: true });
+async function findStaticPages() {
+  // Padrão antigo: app/pecas-lifan-*/page.jsx → HTML em .next/server/app/<slug>.html
+  let entries;
+  try { entries = await readdir(APP_DIR, { withFileTypes: true }); }
+  catch { return []; }
   const pages = [];
   for (const e of entries) {
     if (!e.isDirectory()) continue;
-    if (!e.name.startsWith(LP_PREFIX)) continue;
+    if (!e.name.startsWith(STATIC_LP_PREFIX)) continue;
     try {
       const files = await readdir(join(APP_DIR, e.name));
-      if (files.some((f) => f.startsWith('page.'))) pages.push(e.name);
+      if (files.some((f) => f.startsWith('page.'))) {
+        pages.push({ slug: e.name, candidates: [
+          join(SERVER_DIR, `${e.name}.html`),
+          join(SERVER_DIR, e.name, 'index.html'),
+        ]});
+      }
     } catch {}
   }
   return pages;
 }
 
-async function readBuiltHtml(slug) {
-  const candidates = [
-    join(SERVER_DIR, `${slug}.html`),
-    join(SERVER_DIR, slug, 'index.html'),
-  ];
+async function findDynamicPages() {
+  // Padrão novo: data/lp/<slug>.json → HTML em .next/server/app/lp/<slug>.html
+  let entries;
+  try { entries = await readdir(DATA_LP_DIR); }
+  catch { return []; }
+  const pages = [];
+  for (const f of entries) {
+    if (!f.endsWith('.json')) continue;
+    const slug = f.replace(/\.json$/, '');
+    pages.push({ slug: `lp/${slug}`, candidates: [
+      join(SERVER_DIR, 'lp', `${slug}.html`),
+      join(SERVER_DIR, 'lp', slug, 'index.html'),
+    ]});
+  }
+  return pages;
+}
+
+async function readBuiltHtml(candidates) {
   for (const path of candidates) {
     try { return { html: await readFile(path, 'utf8'), path }; }
     catch {}
@@ -47,7 +69,7 @@ async function readBuiltHtml(slug) {
   return null;
 }
 
-function checkHtml(slug, html) {
+function checkHtml(html) {
   const failures = [];
   if (html.length < MIN_SIZE) failures.push(`tamanho ${html.length}B < mínimo ${MIN_SIZE}B (shell vazio?)`);
   for (const { name, re } of REQUIRED_PATTERNS) if (!re.test(html)) failures.push(`não encontrou: ${name}`);
@@ -56,24 +78,21 @@ function checkHtml(slug, html) {
 }
 
 async function main() {
-  let slugs;
-  try { slugs = await findLandingPages(); }
-  catch { console.log('verify-build: app/ ausente — skip'); return; }
-
-  if (slugs.length === 0) {
-    console.log('verify-build: nenhuma LP em app/pecas-lifan-* — skip');
+  const pages = [...(await findStaticPages()), ...(await findDynamicPages())];
+  if (pages.length === 0) {
+    console.log('verify-build: nenhuma LP encontrada — skip');
     return;
   }
 
   let allOk = true;
-  for (const slug of slugs) {
-    const built = await readBuiltHtml(slug);
+  for (const { slug, candidates } of pages) {
+    const built = await readBuiltHtml(candidates);
     if (!built) {
       console.error(`✗ ${slug}: HTML pré-renderizado não encontrado em .next/server/app/`);
       allOk = false;
       continue;
     }
-    const failures = checkHtml(slug, built.html);
+    const failures = checkHtml(built.html);
     if (failures.length === 0) {
       console.log(`✓ ${slug} (${built.html.length}B) — ${built.path.replace(SERVER_DIR, '')}`);
     } else {
