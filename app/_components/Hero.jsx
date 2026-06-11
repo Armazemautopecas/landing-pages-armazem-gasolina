@@ -14,7 +14,7 @@ export default function Hero({ cfg, heroLayout, heroImage }) {
   const mobileSrc = `${cfg.seo.canonical_path}assets/${base}-600.webp`;
 
   const fabricante = getFabricanteLabel(cfg);
-  const garantiaLabel = fabricante ? `GARANTIA ${fabricante.toUpperCase()}` : 'GARANTIA DE FÁBRICA';
+  const garantiaLabel = fabricante ? `GARANTIA ${fabricante.toUpperCase()}` : 'PEÇAS ORIGINAIS';
   const ctaHref = waLink(cfg.wa.hero_link, slug);
 
   return (
