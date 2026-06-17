@@ -10,6 +10,7 @@ import Footer from '../_components/Footer';
 import { WhatsAppIcon } from '../_components/atoms';
 import { waLink } from '../_components/lib/wa';
 import { buildJsonLd } from '../_components/lib/jsonld';
+import CRITICAL_CSS from '../_components/criticalCss';
 
 export const dynamic = 'force-static';
 
@@ -44,6 +45,7 @@ const jsonLd = buildJsonLd(CFG, PAGE_URL, { oemCount: 0 });
 export default function Page() {
   return (
     <>
+      <style dangerouslySetInnerHTML={{ __html: CRITICAL_CSS }} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

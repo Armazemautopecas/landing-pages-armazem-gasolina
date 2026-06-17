@@ -11,11 +11,13 @@ export default function RootLayout({ children }) {
       <body>
         {children}
         {/* Pixel Armazém (Campaign Tracker) — Opção A do Vinicius (2026-05-08).
-            afterInteractive = injetado após hidratação, equivale ao <script async>
-            recomendado por ele. Roda em todas as LPs do path /injecao-diesel/*. */}
+            17/06/2026: trocado afterInteractive → lazyOnload pra zerar contribuição
+            no TBT (estava bloqueando ~400ms no mobile). lazyOnload = roda só depois
+            do `load` event, fora do caminho crítico do LCP. Tracking continua OK,
+            só atrasa ~1-2s a entrega do hit, aceitável. */}
         <Script
           src="https://t.armazemautopecas.com.br/pixel.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
       </body>
     </html>

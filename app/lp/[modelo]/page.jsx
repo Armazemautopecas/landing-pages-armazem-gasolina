@@ -11,6 +11,7 @@ import Footer from '../../_components/Footer';
 import { WhatsAppIcon } from '../../_components/atoms';
 import { waLink } from '../../_components/lib/wa';
 import { buildJsonLd } from '../../_components/lib/jsonld';
+import CRITICAL_CSS from '../../_components/criticalCss';
 
 // Rota dinâmica universal pras LPs novas (post 11/06/2026).
 // Cada modelo tem 1 arquivo data/lp/<slug>.json. O page.jsx é único.
@@ -75,6 +76,7 @@ export default async function Page({ params }) {
 
   return (
     <>
+      <style dangerouslySetInnerHTML={{ __html: CRITICAL_CSS }} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

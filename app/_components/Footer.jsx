@@ -12,6 +12,8 @@ export default function Footer() {
               className="foot-logo"
               width="160"
               height="74"
+              loading="lazy"
+              decoding="async"
             />
             <div className="tl">Compra segura. Entrega garantida.</div>
             <div className="tl" style={{ marginTop: 20, fontFamily: 'var(--f-mono)', fontSize: 11 }}>

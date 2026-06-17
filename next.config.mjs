@@ -33,6 +33,13 @@ const nextConfig = {
   assetPrefix: isProd ? 'https://landing-pages-armazem-gasolina.vercel.app' : undefined,
   trailingSlash: true,
   poweredByHeader: false,
+  // 17/06/2026: otimizações de perf mobile (Lighthouse mostrou render delay = 73% do LCP).
+  // - optimizeCss: dedup/minifica CSS via critters/lightningcss em build
+  // - optimizePackageImports: tree-shake mais agressivo (mesmo afetando só lib pacotes,
+  //   não doi ter)
+  experimental: {
+    optimizeCss: true,
+  },
   async headers() {
     return [
       { source: '/:path*', headers: securityHeaders },

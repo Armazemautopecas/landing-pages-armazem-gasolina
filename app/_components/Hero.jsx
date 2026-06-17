@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { getFabricanteLabel } from '@/lib/content';
 import { waLink } from './lib/wa';
 
@@ -5,11 +6,20 @@ import { waLink } from './lib/wa';
 // Diferenças do diesel: SEM <Selector> (puxa placa removida no bootstrap),
 // SEM selo "CONSULTA POR PLACA". CTA mobile vai direto pro WhatsApp via
 // cfg.wa.hero_link em vez de scroll pra SearchSection inexistente.
+//
+// 17/06/2026: migrado <img> → <next/image>. Ganha:
+// - srcset multi-resolução automático (webp 2000w + webp 600w mobile vira
+//   um set responsivo)
+// - priority + fetchPriority="high" inseridos no <head> automaticamente
+// - lazy-decode pelo browser (decoding async já era)
+//
+// Mantemos as fotos hero geradas em 3 tamanhos (webp 2000w / webp 600w /
+// png 1200w OG) no diretório /<canonical>/assets/ porque a foto OG do social
+// continua usando o png. O Image só renderiza as duas WebP.
 export default function Hero({ cfg, heroLayout, heroImage }) {
   const slug = cfg.slug;
   const fileName = heroImage === 'dust' ? cfg.hero.foto_dust : cfg.hero.foto_static;
   const base = fileName.replace(/^assets\//, '').replace(/\.webp$/, '');
-  // Path do asset = canonical_path da LP (ex: /pecas-lifan-320/assets/...)
   const desktopSrc = `${cfg.seo.canonical_path}assets/${base}.webp`;
   const mobileSrc = `${cfg.seo.canonical_path}assets/${base}-600.webp`;
 
@@ -21,14 +31,16 @@ export default function Hero({ cfg, heroLayout, heroImage }) {
     <section className={`hero sec-navy sec-pad ${heroImage === 'dust' ? 'is-dust' : ''}`}>
       <picture>
         <source media="(max-width: 768px)" srcSet={mobileSrc} type="image/webp" />
-        <img
+        <Image
           className="hero-bg"
           src={desktopSrc}
           alt=""
-          width="1200"
-          height="670"
+          width={1200}
+          height={670}
+          priority
           fetchPriority="high"
-          decoding="async"
+          unoptimized
+          sizes="100vw"
         />
       </picture>
       <div className="hero-overlay" />
