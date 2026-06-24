@@ -141,13 +141,17 @@ export function buildJsonLd(cfg, pageUrl, opts = {}) {
     ? `${SITE_URL}${cfg.seo.canonical_path}${cfg.seo.og_image}`
     : undefined;
 
+  // 2026-06-24: category config-driven (cfg.seo.product.category). Default genérico
+  // pra LPs gasolina/asiáticas. Antes era hardcoded "sistema de injeção diesel"
+  // (sobra do clone do template diesel) — bug que o Vinícius pegou nos Rich Results.
+  // LPs do repo diesel continuam OK porque definem category próprio no config.
   const productNode = {
     '@type': 'Product',
     name: product.name,
     description: product.description,
     image: imagePath,
     brand: brandNode(product.brands),
-    category: 'Peça automotiva — sistema de injeção diesel',
+    category: product.category || 'Peças automotivas para veículos asiáticos',
     isRelatedTo: (product.vehicles || []).map((name) => ({ '@type': 'Vehicle', name })),
     aggregateRating: AGGREGATE_RATING,
     offers: buildOffersNode(product, AUTOPARTS_STORE['@id'], pageUrl, opts.oemCount),
