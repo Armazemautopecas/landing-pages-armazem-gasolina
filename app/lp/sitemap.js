@@ -1,6 +1,10 @@
 import { readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
+// 2026-09-15 (item #7): movido de app/sitemap.js pra app/lp/sitemap.js.
+// Em /sitemap.xml (raiz) quem responde em produção é a loja Tray — a Bunny não
+// roteia a raiz do domínio pra Vercel. Servido em /lp/sitemap.xml, que é path
+// roteado, o Google finalmente enxerga as 15 LPs.
 const SITE_URL = 'https://www.armazemautopecas.com.br';
 
 // Descobre LPs pasta-por-LP (padrão antigo, prefixo "pecas-").
