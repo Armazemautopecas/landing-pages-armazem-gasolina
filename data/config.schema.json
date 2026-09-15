@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://www.armazemautopecas.com.br/config.schema.json",
   "title": "LP Config",
-  "description": "Schema dos config.json de cada LP. Valida shape mínimo necessário pra LandingClient + helper de JSON-LD funcionarem.",
+  "description": "Schema dos config.json de cada LP. Valida shape mínimo necessário pra LandingClient + helper de JSON-LD funcionarem. 2026-09-15 (item #40): campos renderizados incondicionalmente ganharam minLength:1 — string vazia virava elemento sem conteúdo na página. Exceções deliberadas: why.h2_l2, final_cta.sub_anchor e final_cta.sub_post, que os componentes passaram a tratar como opcionais.",
   "type": "object",
   "required": [
     "slug",
@@ -17,96 +17,230 @@
   ],
   "additionalProperties": true,
   "properties": {
-    "_doc": { "type": "string" },
-    "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-    "categoria": { "type": "string" },
-    "veiculo_key": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-
+    "_doc": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "minLength": 1
+    },
+    "categoria": {
+      "type": "string",
+      "minLength": 1
+    },
+    "veiculo_key": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "minLength": 1
+    },
     "veiculo": {
       "type": "object",
-      "required": ["marca_aliases", "modelo_aliases"],
+      "required": [
+        "marca_aliases",
+        "modelo_aliases"
+      ],
       "properties": {
-        "marca_aliases": { "type": "array", "minItems": 1, "items": { "type": "string" } },
-        "modelo_aliases": { "type": "array", "minItems": 1, "items": { "type": "string" } },
-        "motor_por_cv": { "type": "object" }
+        "marca_aliases": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "modelo_aliases": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "motor_por_cv": {
+          "type": "object"
+        }
       }
     },
-
     "hero": {
       "type": "object",
-      "required": ["foto_static", "eyebrow", "h1_linha1", "h1_linha2", "h1_sub", "sub", "cta_mobile_label"],
+      "required": [
+        "foto_static",
+        "eyebrow",
+        "h1_linha1",
+        "h1_linha2",
+        "h1_sub",
+        "sub",
+        "cta_mobile_label"
+      ],
       "properties": {
-        "foto_static": { "type": "string" },
-        "foto_dust": { "type": "string" },
-        "eyebrow": { "type": "string" },
-        "h1_linha1": { "type": "string" },
-        "h1_linha2": { "type": "string" },
-        "h1_sub": { "type": "string" },
-        "sub": { "type": "string" },
-        "cta_mobile_label": { "type": "string" }
+        "foto_static": {
+          "type": "string",
+          "minLength": 1
+        },
+        "foto_dust": {
+          "type": "string"
+        },
+        "eyebrow": {
+          "type": "string",
+          "minLength": 1
+        },
+        "h1_linha1": {
+          "type": "string",
+          "minLength": 1
+        },
+        "h1_linha2": {
+          "type": "string",
+          "minLength": 1
+        },
+        "h1_sub": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sub": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cta_mobile_label": {
+          "type": "string",
+          "minLength": 1
+        }
       }
     },
-
     "selector": {
       "type": "object",
-      "required": ["titulo_l1", "titulo_l2", "subtexto"],
+      "required": [
+        "titulo_l1",
+        "titulo_l2",
+        "subtexto"
+      ],
       "properties": {
-        "titulo_l1": { "type": "string" },
-        "titulo_l2": { "type": "string" },
-        "subtexto": { "type": "string" }
+        "titulo_l1": {
+          "type": "string"
+        },
+        "titulo_l2": {
+          "type": "string"
+        },
+        "subtexto": {
+          "type": "string"
+        }
       }
     },
-
     "peca": {
       "type": "object",
-      "required": ["nome", "short_label", "fabricante_label", "tem_primeira_linha", "bullets_default", "bullets_unknown", "foto_default"],
+      "required": [
+        "nome",
+        "short_label",
+        "fabricante_label",
+        "tem_primeira_linha",
+        "bullets_default",
+        "bullets_unknown",
+        "foto_default"
+      ],
       "properties": {
-        "nome": { "type": "string" },
-        "short_label": { "type": "string" },
-        "fabricante_label": { "type": "string" },
-        "fabricante_principal_short": { "type": "string" },
+        "nome": {
+          "type": "string"
+        },
+        "short_label": {
+          "type": "string"
+        },
+        "fabricante_label": {
+          "type": "string"
+        },
+        "fabricante_principal_short": {
+          "type": "string"
+        },
         "motores_label": {
           "type": "string",
           "description": "String de motores cobertos pra interpolar em FAQ + TechnicalBlock + SEO. Ex: '2.0 TDI e 3.0 V6' (Amarok), '2.5 D4CB CRDi' (HR). Skill preenche na Fase 6."
         },
-        "tem_primeira_linha": { "type": "boolean" },
-        "bullets_default": { "type": "array", "minItems": 1, "items": { "type": "string" } },
-        "bullets_v6": { "type": "array", "items": { "type": "string" } },
-        "bullets_unknown": { "type": "array", "minItems": 1, "items": { "type": "string" } },
-        "foto_default": { "type": "string" },
-        "foto_por_marca": { "type": "object" },
+        "tem_primeira_linha": {
+          "type": "boolean"
+        },
+        "bullets_default": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "bullets_v6": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "bullets_unknown": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "foto_default": {
+          "type": "string"
+        },
+        "foto_por_marca": {
+          "type": "object"
+        },
         "fotos_por_oem": {
           "type": "object",
           "description": "Mapeia OEM sanitizado (sem espaços/pontos) → path absoluto da foto. Tem precedência sobre foto_por_marca. Convenção: /pecas/<OEM>.webp em pasta shared.",
-          "additionalProperties": { "type": "string" }
+          "additionalProperties": {
+            "type": "string"
+          }
         },
-        "equivalentes_por_motor": { "type": "object" }
+        "equivalentes_por_motor": {
+          "type": "object"
+        }
       }
     },
-
     "why": {
       "type": "object",
-      "required": ["h2_l1", "h2_l2", "h2_l2_red", "items"],
+      "required": [
+        "h2_l1",
+        "h2_l2_red",
+        "items"
+      ],
       "properties": {
-        "h2_l1": { "type": "string" },
-        "h2_l2": { "type": "string" },
-        "h2_l2_red": { "type": "string" },
+        "h2_l1": {
+          "type": "string",
+          "minLength": 1
+        },
+        "h2_l2": {
+          "type": "string",
+          "description": "Opcional. Segunda linha do H2 — quando vazio/ausente, WhySection não renderiza o <br/> nem o espaço (item #14, 2026-09-15)."
+        },
+        "h2_l2_red": {
+          "type": "string",
+          "minLength": 1
+        },
         "items": {
           "type": "array",
           "minItems": 1,
           "items": {
             "type": "object",
-            "required": ["num", "ttl", "body"],
+            "required": [
+              "num",
+              "ttl",
+              "body"
+            ],
             "properties": {
-              "num": { "type": "string" },
-              "ttl": { "type": "string" },
-              "body": { "type": "string" }
+              "num": {
+                "type": "string",
+                "minLength": 1
+              },
+              "ttl": {
+                "type": "string",
+                "minLength": 1
+              },
+              "body": {
+                "type": "string",
+                "minLength": 1
+              }
             }
           }
         }
       }
     },
-
     "wa": {
       "type": "object",
       "required": [
@@ -114,97 +248,228 @@
         "final_cta"
       ],
       "properties": {
-        "fab_default": { "type": "string" },
-        "result_plate_template": { "type": "string" },
-        "result_year_template": { "type": "string" },
-        "result_notfound_template": { "type": "string" },
-        "result_notsupported_template": { "type": "string" },
-        "result_error_template": { "type": "string" },
-        "result_dontknow_motor": { "type": "string" },
-        "final_cta": { "type": "string" }
+        "fab_default": {
+          "type": "string",
+          "minLength": 1
+        },
+        "result_plate_template": {
+          "type": "string"
+        },
+        "result_year_template": {
+          "type": "string"
+        },
+        "result_notfound_template": {
+          "type": "string"
+        },
+        "result_notsupported_template": {
+          "type": "string"
+        },
+        "result_error_template": {
+          "type": "string"
+        },
+        "result_dontknow_motor": {
+          "type": "string"
+        },
+        "final_cta": {
+          "type": "string",
+          "minLength": 1
+        }
       }
     },
-
     "result_messages": {
       "type": "object",
-      "required": ["default_oem_unknown", "not_supported_default", "hint_primeira_linha_bold", "hint_primeira_linha_tail"],
+      "required": [
+        "default_oem_unknown",
+        "not_supported_default",
+        "hint_primeira_linha_bold",
+        "hint_primeira_linha_tail"
+      ],
       "properties": {
-        "default_oem_unknown": { "type": "string" },
-        "not_supported_default": { "type": "string" },
-        "hint_primeira_linha_bold": { "type": "string" },
-        "hint_primeira_linha_tail": { "type": "string" }
+        "default_oem_unknown": {
+          "type": "string"
+        },
+        "not_supported_default": {
+          "type": "string"
+        },
+        "hint_primeira_linha_bold": {
+          "type": "string"
+        },
+        "hint_primeira_linha_tail": {
+          "type": "string"
+        }
       }
     },
-
     "final_cta": {
       "type": "object",
-      "required": ["h2_l1", "h2_l2_red_l1", "h2_l2_red_l2", "btn", "microtext_pre", "microtext_post"],
+      "required": [
+        "h2_l1",
+        "h2_l2_red_l1",
+        "h2_l2_red_l2",
+        "btn",
+        "microtext_pre",
+        "microtext_post"
+      ],
       "properties": {
-        "h2_l1": { "type": "string" },
-        "h2_l2_red_l1": { "type": "string" },
-        "h2_l2_red_l2": { "type": "string" },
-        "sub_pre": { "type": "string" },
-        "sub_anchor": { "type": "string" },
-        "sub_post": { "type": "string" },
-        "btn": { "type": "string" },
-        "microtext_pre": { "type": "string" },
-        "microtext_post": { "type": "string" }
+        "h2_l1": {
+          "type": "string",
+          "minLength": 1
+        },
+        "h2_l2_red_l1": {
+          "type": "string",
+          "minLength": 1
+        },
+        "h2_l2_red_l2": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sub_pre": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sub_anchor": {
+          "type": "string",
+          "description": "Opcional. Quando vazio/ausente, FinalCTA não renderiza nada (item #14, 2026-09-15). Antes gerava <a href=\"#buscar\"> sem texto."
+        },
+        "sub_post": {
+          "type": "string",
+          "description": "Opcional. Quando vazio/ausente, FinalCTA não renderiza nada (item #14, 2026-09-15). Antes gerava <a href=\"#buscar\"> sem texto."
+        },
+        "btn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "microtext_pre": {
+          "type": "string",
+          "minLength": 1
+        },
+        "microtext_post": {
+          "type": "string",
+          "minLength": 1
+        }
       }
     },
-
     "content": {
       "type": "object",
       "properties": {
-        "testimonials": { "type": "array" },
+        "testimonials": {
+          "type": "array"
+        },
         "faqs": {
           "type": "object",
           "description": "Override de FAQ por id (MERGE — não replace). Chaves são ids do template (sintomas, qualidade, calibracao, preco, compatibilidade, troca, prazo, pagamento). Cada valor pode ter q, a ou ambos. Ids desconhecidos viram perguntas extras no fim.",
           "additionalProperties": {
             "type": "object",
             "properties": {
-              "q": { "type": "string" },
-              "a": { "type": "string" }
+              "q": {
+                "type": "string"
+              },
+              "a": {
+                "type": "string"
+              }
             }
           }
         }
       }
     },
-
     "technical_block": {
       "type": "object",
       "description": "Bloco de conteúdo técnico-educacional entre Testimonials e FAQ. Opcional — se ausente, componente não renderiza nada. ~200 palavras parametrizadas pra ranquear cauda longa (sintomas, OEM vs paralelo, cobertura).",
-      "required": ["heading", "intro", "symptoms", "quality_explanation", "closing"],
+      "required": [
+        "heading",
+        "intro",
+        "symptoms",
+        "quality_explanation",
+        "closing"
+      ],
       "properties": {
-        "heading": { "type": "string", "minLength": 30, "maxLength": 90 },
-        "intro": { "type": "string", "minLength": 80 },
+        "heading": {
+          "type": "string",
+          "minLength": 30,
+          "maxLength": 90
+        },
+        "intro": {
+          "type": "string",
+          "minLength": 80
+        },
         "symptoms": {
           "type": "array",
-          "minItems": 3, "maxItems": 8,
-          "items": { "type": "string", "minLength": 10 }
+          "minItems": 3,
+          "maxItems": 8,
+          "items": {
+            "type": "string",
+            "minLength": 10
+          }
         },
-        "quality_explanation": { "type": "string", "minLength": 80 },
-        "closing": { "type": "string", "minLength": 60 }
+        "quality_explanation": {
+          "type": "string",
+          "minLength": 80
+        },
+        "closing": {
+          "type": "string",
+          "minLength": 60
+        }
       }
     },
-
     "seo": {
       "type": "object",
-      "required": ["title", "description", "og_image", "og_image_alt", "twitter_description", "canonical_path"],
+      "required": [
+        "title",
+        "description",
+        "og_image",
+        "og_image_alt",
+        "twitter_description",
+        "canonical_path"
+      ],
       "properties": {
-        "title": { "type": "string" },
-        "description": { "type": "string" },
-        "og_image": { "type": "string" },
-        "og_image_alt": { "type": "string" },
-        "twitter_description": { "type": "string" },
-        "canonical_path": { "type": "string", "pattern": "^/.*/$" },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "og_image": {
+          "type": "string"
+        },
+        "og_image_alt": {
+          "type": "string"
+        },
+        "twitter_description": {
+          "type": "string"
+        },
+        "canonical_path": {
+          "type": "string",
+          "pattern": "^/.*/$"
+        },
         "product": {
           "type": "object",
-          "required": ["name", "description", "brands", "vehicles", "price_range"],
+          "required": [
+            "name",
+            "description",
+            "brands",
+            "vehicles",
+            "price_range"
+          ],
           "properties": {
-            "name": { "type": "string" },
-            "description": { "type": "string" },
-            "brands": { "type": "array", "minItems": 1, "items": { "type": "string" } },
-            "vehicles": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "brands": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "vehicles": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
             "price_range": {
               "type": "string",
               "description": "Faixa de preço pra Schema.org Offer.priceSpecification.price (Google Rich Results exige). Formato: 'R$ X - R$ Y' COM ponto de milhar (Google rejeita 'R$ 1300 - R$ 1600'). Ex: 'R$ 1.000 - R$ 2.000' (Amarok), 'R$ 1.300 - R$ 1.600' (HR). Realista — Google compara com concorrência.",

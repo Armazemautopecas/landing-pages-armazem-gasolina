@@ -8,7 +8,9 @@ export default function WhySection({ cfg, style }) {
     <section className="sec-navy sec-pad">
       <div className="container">
         <h2 className="h2" style={{ color: 'var(--off)', maxWidth: 18 + 'ch' }}>
-          {cfg.why.h2_l1}<br />{cfg.why.h2_l2} <span style={{ color: 'var(--red)' }}>{cfg.why.h2_l2_red}</span>.
+          {/* 2026-09-15 (item #14): h2_l2 é opcional — vazio saía como <br/> + espaço
+              solto no meio do H2. Nas LPs de gasolina ele nunca é preenchido. */}
+          {cfg.why.h2_l1}{cfg.why.h2_l2 ? <><br />{cfg.why.h2_l2}</> : null} <span style={{ color: 'var(--red)' }}>{cfg.why.h2_l2_red}</span>.
         </h2>
         <div className={`why-grid ${style === 'stacked' ? 'is-stacked' : ''}`}>
           {items.map((it, i) => (
