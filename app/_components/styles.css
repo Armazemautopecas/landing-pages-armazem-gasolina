@@ -237,7 +237,10 @@ a { color: inherit; }
   box-shadow: inset 0 0 0 1px var(--red), 0 6px 20px rgba(4,31,48,0.3);
   transform: translateY(-1px);
 }
+/* pilula: o CTA principal tem o mesmo formato no topo, no meio e no fecho
+   (decisao Diego 15/09/2026) */
 .btn-red {
+  border-radius: 999px;
   background: var(--red); color: #fff;
   box-shadow: 0 4px 14px rgba(255,2,30,0.28);
 }
@@ -306,8 +309,39 @@ section { position: relative; }
     linear-gradient(95deg, rgba(4,31,48,0.95) 0%, rgba(4,31,48,0.78) 28%, rgba(4,31,48,0.3) 58%, rgba(4,31,48,0) 100%),
     linear-gradient(180deg, rgba(4,31,48,0) 60%, rgba(4,31,48,0.8) 100%);
 }
-/* default: mobile-only CTA hidden on desktop, search-section vazia hidden on desktop */
-.hero-cta-mobile { display: none; }
+/* ---- CTA do topo — PADRAO FIXO (decisao Diego 15/09/2026) -----------------
+   Era mobile-only (`display:none` aqui) e com seta: no desktop o hero ficava
+   sem botao e o texto mudava de LP pra LP. Agora e o MESMO bloco do diesel e
+   da Casa do Injetor: pilula vermelha + icone do WhatsApp + texto unico, no
+   celular e no desktop. `height` fixa reserva a caixa antes da webfont entrar
+   (CLS). Regra espelhada em criticalCss.js — as duas TEM que bater. */
+.hero-ctas { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.hero-cta-wa {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 22px;
+  height: 56px;
+  line-height: 1;
+  padding: 0 32px;
+  background: var(--red);
+  color: var(--off);
+  font-family: var(--f-head);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 999px;
+  box-shadow: 0 10px 28px rgba(255,2,30,0.45), 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.hero-cta-wa:hover { transform: translateY(-1px); box-shadow: 0 14px 34px rgba(255,2,30,0.5); }
+.hero-cta-wa:active { transform: scale(0.97); box-shadow: 0 4px 14px rgba(255,2,30,0.4); }
+.hero-cta-wa svg { flex: 0 0 auto; }
 .search-section.is-empty { display: none; }
 .search-section { scroll-margin-top: 16px; }
 
@@ -369,7 +403,7 @@ section { position: relative; }
      `height` fixa e `line-height: 1`: a caixa tem tamanho reservado antes de
      qualquer fonte carregar e não sai mais do lugar.
      Esta regra é espelhada em criticalCss.js — as duas TÊM que bater. */
-  .hero-cta-mobile {
+  .hero-cta-wa {
     display: flex;
     width: fit-content;
     align-items: center;
@@ -392,7 +426,7 @@ section { position: relative; }
     box-shadow: 0 10px 28px rgba(255,2,30,0.45), 0 2px 6px rgba(0,0,0,0.2);
     transition: transform .12s ease, box-shadow .12s ease;
   }
-  .hero-cta-mobile:active {
+  .hero-cta-wa:active {
     transform: scale(0.97);
     box-shadow: 0 4px 14px rgba(255,2,30,0.4);
   }
@@ -421,24 +455,31 @@ section { position: relative; }
   .wa-fab { width: 52px; height: 52px; bottom: 14px; right: 14px; }
 }
 
-/* Hero trust signals — só desktop */
-.hero-trusts-desktop {
-  display: none;
+/* Hero trust signals — os 3 argumentos com check vermelho abaixo do botao.
+   Ate 15/09/2026 era `.hero-trusts-desktop`, com display:none abaixo de 960px:
+   os selos sumiam justo no celular, de onde vem quase todo o clique pago. Agora
+   aparecem em TODAS as larguras, como no diesel e na Casa do Injetor. */
+.hero-trusts {
+  display: flex;
   list-style: none; padding: 0;
-  margin: 28px 0 0;
+  margin: 18px 0 0;
   flex-wrap: wrap;
-  gap: 18px 24px;
-  font-size: 13px;
+  gap: 8px 12px;
+  font-size: 11.5px;
   color: rgba(245,245,245,0.88);
   letter-spacing: 0.01em;
 }
-.hero-trusts-desktop li {
+.hero-trusts li {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  white-space: nowrap;
 }
+.hero-trusts svg { flex: 0 0 auto; }
+@media (min-width: 420px) { .hero-trusts { font-size: 12.5px; gap: 10px 16px; } }
 @media (min-width: 960px) {
-  .hero-trusts-desktop { display: flex; }
+  .hero-trusts { margin-top: 28px; gap: 18px 24px; font-size: 13px; }
+  .hero-trusts li { gap: 8px; }
 }
 
 /* Final CTA — link "seletor acima" sutilmente destacado */

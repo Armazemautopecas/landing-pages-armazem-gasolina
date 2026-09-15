@@ -9,7 +9,8 @@
 // - variáveis :root
 // - .container, .sec-pad, .sec-navy
 // - .hero, .hero-bg, .hero-overlay, .hero-grid, .hero-tag, .hero-sub, .hero-h1
-// - .hero-cta-mobile + animações que rolam logo
+// - .hero-cta-wa (pílula vermelha com ícone do WhatsApp) + .hero-trusts
+//   (padrão fixo do topo, decisão Diego 15/09/2026) + animações que rolam logo
 //   (item #17, 2026-09-15: altura FIXA do botão — espelha styles.css. Se as duas
 //    divergirem, volta o CLS: a página pinta com uma altura e reajusta com outra.)
 // - font-display swap pras 3 famílias (já tava no styles.css mas inline garante)
@@ -42,10 +43,14 @@ ul{list-style:none;padding:0;margin:0}
 .hero-h1 .line-2{display:block;color:rgba(245,245,245,0.88);font-weight:600;font-size:0.58em;letter-spacing:0.02em;margin-top:8px}
 .hero-h1 .red-dot{display:inline-block;width:12px;height:12px;background:var(--red);border-radius:50%;margin-left:8px;vertical-align:0.1em}
 .hero-sub{font-size:16px;line-height:1.55;color:rgba(245,245,245,0.85);margin:18px 0 0;max-width:48ch}
-.hero-cta-mobile{display:none}
-.hero-trusts-desktop{display:none;list-style:none;padding:0;margin:28px 0 0;flex-wrap:wrap;gap:18px 24px;font-size:13px;color:rgba(245,245,245,0.88);letter-spacing:0.01em}
-.hero-trusts-desktop li{display:inline-flex;align-items:center;gap:8px}
-@media (min-width:960px){.hero-trusts-desktop{display:flex}}
+.hero-ctas{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.hero-cta-wa{display:flex;width:fit-content;max-width:100%;align-items:center;justify-content:center;gap:10px;margin-top:22px;height:56px;line-height:1;padding:0 32px;background:var(--red);color:var(--off);font-family:var(--f-head);font-weight:700;font-size:15px;letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;border-radius:999px;box-shadow:0 10px 28px rgba(255,2,30,0.45),0 2px 6px rgba(0,0,0,0.2)}
+.hero-cta-wa svg{flex:0 0 auto}
+.hero-trusts{display:flex;list-style:none;padding:0;margin:18px 0 0;flex-wrap:wrap;gap:8px 12px;font-size:11.5px;color:rgba(245,245,245,0.88);letter-spacing:0.01em}
+.hero-trusts li{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.hero-trusts svg{flex:0 0 auto}
+@media (min-width:420px){.hero-trusts{font-size:12.5px;gap:10px 16px}}
+@media (min-width:960px){.hero-trusts{margin-top:28px;gap:18px 24px;font-size:13px}.hero-trusts li{gap:8px}}
 @media (max-width:720px){
 .hero{min-height:clamp(400px,56svh,480px);padding:48px 0 32px}
 .hero-overlay{background:linear-gradient(180deg,rgba(4,31,48,0.55) 0%,rgba(4,31,48,0.30) 25%,rgba(4,31,48,0.45) 55%,rgba(4,31,48,0.92) 100%)}
@@ -56,7 +61,7 @@ ul{list-style:none;padding:0;margin:0}
 .hero-tag{font-size:10px;letter-spacing:0.14em;margin-bottom:12px}
 .hero-tag::before{width:22px}
 .hero-sub{font-size:14px;margin-top:12px;max-width:none}
-.hero-cta-mobile{display:flex;width:fit-content;align-items:center;justify-content:center;gap:10px;margin-top:22px;height:56px;line-height:1;padding:0 32px;background:var(--red);color:var(--off);font-family:var(--f-head);font-weight:700;font-size:15px;letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;border-radius:999px;box-shadow:0 10px 28px rgba(255,2,30,0.45),0 2px 6px rgba(0,0,0,0.2)}
+.hero-cta-wa{display:flex;width:fit-content;align-items:center;justify-content:center;gap:10px;margin-top:22px;height:56px;line-height:1;padding:0 32px;background:var(--red);color:var(--off);font-family:var(--f-head);font-weight:700;font-size:15px;letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;border-radius:999px;box-shadow:0 10px 28px rgba(255,2,30,0.45),0 2px 6px rgba(0,0,0,0.2)}
 }
 @keyframes heroZoom{from{transform:scale(1.05)}to{transform:scale(1)}}
 @keyframes swipe{from{transform:scaleX(0)}to{transform:scaleX(1)}}

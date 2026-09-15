@@ -1,5 +1,6 @@
 import { waLink, WA_NUMBER_DISPLAY } from './lib/wa';
 import { WhatsAppIcon } from './atoms';
+import { CTA_PRINCIPAL } from '@/lib/content';
 
 export default function FinalCTA({ cfg }) {
   return (
@@ -25,7 +26,7 @@ export default function FinalCTA({ cfg }) {
           {cfg.final_cta.sub_post ? ` ${cfg.final_cta.sub_post}` : ''}
         </p>
         <a className="btn btn-red btn-lg" href={waLink(cfg.wa.final_cta, cfg.slug)} target="_blank" rel="noreferrer">
-          <WhatsAppIcon /> {cfg.final_cta.btn}
+          <WhatsAppIcon /> {CTA_PRINCIPAL}
         </a>
         <div className="microtext">
           {cfg.final_cta.microtext_pre} {WA_NUMBER_DISPLAY} {cfg.final_cta.microtext_post}

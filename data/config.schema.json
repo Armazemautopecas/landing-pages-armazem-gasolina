@@ -102,6 +102,16 @@
         "cta_mobile_label": {
           "type": "string",
           "minLength": 1
+        },
+        "badges": {
+          "$comment": "Os 3 argumentos com check vermelho abaixo do botão do topo (padrão fixo, decisão Diego 15/09/2026). Opcional: sem este campo a LP usa HERO_BADGES_DEFAULT de lib/content.js (PEÇAS CERTIFICADAS / DESPACHO EM 24H / DEVOLUÇÃO FÁCIL).",
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 4,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         }
       }
     },

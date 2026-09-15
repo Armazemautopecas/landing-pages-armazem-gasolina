@@ -1,6 +1,7 @@
 import Image from 'next/image';
-import { getFabricanteLabel } from '@/lib/content';
+import { getHeroBadges, CTA_PRINCIPAL } from '@/lib/content';
 import { waLink } from './lib/wa';
+import { WhatsAppIcon } from './atoms';
 
 // Hero — versão gasolina (Lifan e linha asiática).
 // Diferenças do diesel: SEM <Selector> (puxa placa removida no bootstrap),
@@ -23,9 +24,10 @@ export default function Hero({ cfg, heroLayout, heroImage }) {
   const desktopSrc = `${cfg.seo.canonical_path}assets/${base}.webp`;
   const mobileSrc = `${cfg.seo.canonical_path}assets/${base}-600.webp`;
 
-  const fabricante = getFabricanteLabel(cfg);
-  const garantiaLabel = fabricante ? `GARANTIA ${fabricante.toUpperCase()}` : 'PEÇAS ORIGINAIS';
   const ctaHref = waLink(cfg.wa.hero_link, slug);
+  // 3 argumentos com check vermelho abaixo do botão (padrão fixo do topo,
+  // decisão Diego 15/09/2026). Vêm de hero.badges quando a LP define.
+  const badges = getHeroBadges(cfg);
 
   return (
     <section className={`hero sec-navy sec-pad ${heroImage === 'dust' ? 'is-dust' : ''}`}>
@@ -65,26 +67,26 @@ export default function Hero({ cfg, heroLayout, heroImage }) {
               <span className="line-2">{cfg.hero.h1_sub}</span>
             </h1>
             <p className="hero-sub">{cfg.hero.sub}</p>
-            <a className="hero-cta-mobile" href={ctaHref} target="_blank" rel="noreferrer">
-              <span>{cfg.hero.cta_mobile_label}</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="13 6 19 12 13 18" />
-              </svg>
-            </a>
-            <ul className="hero-trusts-desktop" aria-label="Garantias">
-              <li>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF021E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                {garantiaLabel}
-              </li>
-              <li>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF021E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                {cfg.seo?.product?.free_shipping ? 'FRETE GRÁTIS' : 'DEVOLUÇÃO FÁCIL'}
-              </li>
+            {/* Padrão fixo do topo (decisão Diego 15/09/2026): pílula vermelha
+                com o ícone do WhatsApp e o texto único CTA_PRINCIPAL, igual às
+                LPs de diesel e da Casa do Injetor. Sem botão secundário — a LP
+                de gasolina não tem busca por placa/ano. Mesmo bloco no celular
+                e no desktop. */}
+            <div className="hero-ctas">
+              <a className="hero-cta-wa" href={ctaHref} target="_blank" rel="noreferrer">
+                <WhatsAppIcon size={18} />
+                <span>{CTA_PRINCIPAL}</span>
+              </a>
+            </div>
+            <ul className="hero-trusts" aria-label="Garantias">
+              {badges.map((b) => (
+                <li key={b}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF021E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  {b}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
