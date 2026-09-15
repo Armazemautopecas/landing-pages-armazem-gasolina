@@ -352,15 +352,26 @@ section { position: relative; }
   }
   .hero .wa-link { display: none; }
   .hero .selector { display: none; }
+  /* 2026-09-15 (item #17): altura do botão fixada pra matar o CLS de 0,106 do
+     Kyron. Antes ele era `inline-flex` com `min-height`: como inline-flex fica
+     numa linha de texto, a linha era medida pela BASELINE do conteúdo do botão
+     — e essa baseline muda quando a webfont Big Shoulders entra no lugar da
+     fonte de sistema (font-display: swap). Cada troca de fonte empurrava tudo o
+     que vem depois do hero. Agora é bloco (`flex` + width fit-content), com
+     `height` fixa e `line-height: 1`: a caixa tem tamanho reservado antes de
+     qualquer fonte carregar e não sai mais do lugar.
+     Esta regra é espelhada em criticalCss.js — as duas TÊM que bater. */
   .hero-cta-mobile {
-    display: inline-flex;
+    display: flex;
+    width: fit-content;
     align-items: center;
     justify-content: center;
     gap: 10px;
     margin-top: 22px;
     /* touch-target ≥ 56px de altura (rule CRITICAL uipro >= 44px) */
-    min-height: 56px;
-    padding: 18px 32px;
+    height: 56px;
+    line-height: 1;
+    padding: 0 32px;
     background: var(--red);
     color: var(--off);
     font-family: var(--f-head);

@@ -10,6 +10,8 @@
 // - .container, .sec-pad, .sec-navy
 // - .hero, .hero-bg, .hero-overlay, .hero-grid, .hero-tag, .hero-sub, .hero-h1
 // - .hero-cta-mobile + animações que rolam logo
+//   (item #17, 2026-09-15: altura FIXA do botão — espelha styles.css. Se as duas
+//    divergirem, volta o CLS: a página pinta com uma altura e reajusta com outra.)
 // - font-display swap pras 3 famílias (já tava no styles.css mas inline garante)
 //
 // Mantemos o styles.css completo carregando depois — só removemos o blocking
@@ -54,7 +56,7 @@ ul{list-style:none;padding:0;margin:0}
 .hero-tag{font-size:10px;letter-spacing:0.14em;margin-bottom:12px}
 .hero-tag::before{width:22px}
 .hero-sub{font-size:14px;margin-top:12px;max-width:none}
-.hero-cta-mobile{display:inline-flex;align-items:center;justify-content:center;gap:10px;margin-top:22px;min-height:56px;padding:18px 32px;background:var(--red);color:var(--off);font-family:var(--f-head);font-weight:700;font-size:15px;letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;border-radius:999px;box-shadow:0 10px 28px rgba(255,2,30,0.45),0 2px 6px rgba(0,0,0,0.2)}
+.hero-cta-mobile{display:flex;width:fit-content;align-items:center;justify-content:center;gap:10px;margin-top:22px;height:56px;line-height:1;padding:0 32px;background:var(--red);color:var(--off);font-family:var(--f-head);font-weight:700;font-size:15px;letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;border-radius:999px;box-shadow:0 10px 28px rgba(255,2,30,0.45),0 2px 6px rgba(0,0,0,0.2)}
 }
 @keyframes heroZoom{from{transform:scale(1.05)}to{transform:scale(1)}}
 @keyframes swipe{from{transform:scaleX(0)}to{transform:scaleX(1)}}
