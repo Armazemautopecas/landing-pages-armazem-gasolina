@@ -6,6 +6,7 @@ import WhySection from '../_components/WhySection';
 import Testimonials from '../_components/Testimonials';
 import FAQ from '../_components/FAQ';
 import FinalCTA from '../_components/FinalCTA';
+import MidCTA from '../_components/MidCTA';
 import Footer from '../_components/Footer';
 import { WhatsAppIcon } from '../_components/atoms';
 import { waLink } from '../_components/lib/wa';
@@ -63,7 +64,9 @@ export default function Page() {
 
       <WhySection cfg={CFG} style="stacked" />
       <Testimonials cfg={CFG} />
+      <MidCTA cfg={CFG} />
       <FAQ cfg={CFG} />
+      <MidCTA cfg={CFG} />
       <FinalCTA cfg={CFG} />
       <Footer />
 

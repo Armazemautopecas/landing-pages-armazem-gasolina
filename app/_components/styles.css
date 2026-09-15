@@ -1187,3 +1187,19 @@ footer {
   /* Eyebrow PERGUNTAS/QUEM JÁ VOLTOU */
   section .eyebrow { font-size: 10px; letter-spacing: 0.14em; }
 }
+
+/* ---------- CTA do meio da página (itens #10/#25 — 2026-09-15) ----------
+   Botão de WhatsApp depois dos depoimentos e depois do FAQ. Antes só existia
+   CTA no topo e no rodapé, e o meio da página não tinha saída. */
+.mid-cta {
+  padding: 0 0 48px;
+  text-align: center;
+}
+.mid-cta .btn {
+  /* alvo de toque mínimo de 48px */
+  min-height: 48px;
+}
+@media (max-width: 720px) {
+  .mid-cta { padding: 0 0 36px; }
+  .mid-cta .btn { width: 100%; max-width: 420px; }
+}
