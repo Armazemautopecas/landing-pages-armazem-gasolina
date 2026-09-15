@@ -39,7 +39,13 @@ export default function Hero({ cfg, heroLayout, heroImage }) {
         <Image
           className="hero-bg"
           src={desktopSrc}
-          alt=""
+          /* 2026-09-15 (item #19): alt vazio tratava a foto do veículo como
+             decorativa. Ela é o elemento LCP e a única foto de produto da
+             página — com alt vazio a LP abria mão do Google Imagens pra uma
+             busca de alta intenção ("peça lifan x60"). O texto já existia em
+             seo.og_image_alt ("SsangYong Kyron em destaque"); hero.foto_alt
+             permite sobrescrever por LP quando fizer sentido. */
+          alt={cfg.hero?.foto_alt || cfg.seo?.og_image_alt || ''}
           width={1200}
           height={670}
           loading="eager"
