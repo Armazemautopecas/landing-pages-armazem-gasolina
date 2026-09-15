@@ -3,6 +3,13 @@ import './globals.css';
 
 export const metadata = {
   metadataBase: new URL('https://www.armazemautopecas.com.br'),
+  // 2026-09-15: favicon servido de /lp/_assets/ (path roteado pela Bunny).
+  // A rota raiz /icon.svg (antigo app/icon.svg) foi removida: a Bunny não
+  // roteia a raiz do domínio, então respondia 404 em produção.
+  icons: {
+    icon: [{ url: '/lp/_assets/icon.svg', type: 'image/svg+xml' }],
+    shortcut: [{ url: '/lp/_assets/icon.svg', type: 'image/svg+xml' }],
+  },
 };
 
 export default function RootLayout({ children }) {
