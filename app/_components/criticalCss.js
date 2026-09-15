@@ -47,7 +47,7 @@ ul{list-style:none;padding:0;margin:0}
 .hero-trusts-desktop li{display:inline-flex;align-items:center;gap:8px}
 @media (min-width:960px){.hero-trusts-desktop{display:flex}}
 @media (max-width:720px){
-.hero{min-height:clamp(560px,88svh,720px);padding:56px 0 36px}
+.hero{min-height:clamp(400px,56svh,480px);padding:48px 0 32px}
 .hero-overlay{background:linear-gradient(180deg,rgba(4,31,48,0.55) 0%,rgba(4,31,48,0.30) 25%,rgba(4,31,48,0.45) 55%,rgba(4,31,48,0.92) 100%)}
 .hero-bg{object-position:50% 65%}
 .hero-grid{gap:18px}

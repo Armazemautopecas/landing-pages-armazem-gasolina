@@ -316,9 +316,17 @@ section { position: relative; }
      Overlay anterior tava 82% navy → carro invisível. Novo: overlay mais
      claro no topo (deixa ver o carro) e mais escuro no fundo (legibilidade
      do texto). Hero alongado pra caber h1 + sub + CTA sem cortar a foto. */
+  /* 2026-09-15 (item #26): altura do hero no celular cortada ~33%.
+     Era clamp(560px, 88svh, 720px) — num iPhone de 390x844 dava 720px, quase
+     uma tela inteira de foto antes de qualquer informação, e a barra de
+     confiança só aparecia depois de rolar. Agora clamp(400px, 56svh, 480px),
+     que no mesmo aparelho dá 480px. O conteúdo do hero (eyebrow + h1 + sub +
+     botão de 56px) ocupa ~340px, então continua cabendo sem cortar nada.
+     Desktop não muda: esta regra vive dentro do @media (max-width: 720px).
+     Espelhado em criticalCss.js — as duas TÊM que bater. */
   .hero {
-    min-height: clamp(560px, 88svh, 720px);
-    padding: 56px 0 36px;
+    min-height: clamp(400px, 56svh, 480px);
+    padding: 48px 0 32px;
   }
   .hero-overlay {
     background:
