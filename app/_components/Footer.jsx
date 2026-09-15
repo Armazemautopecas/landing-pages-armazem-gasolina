@@ -1,6 +1,12 @@
 import { WA_NUMBER_DISPLAY } from './lib/wa';
 
 export default function Footer() {
+  // 2026-09-15 (item #39): o ano era "© 2026" cravado no código e viraria dado
+  // errado em 01/01/2027. Footer é server component e as LPs são estáticas, então
+  // este é o ano do BUILD — basta um deploy em janeiro pra virar. Sem risco de
+  // divergência entre servidor e navegador (que causaria erro de hidratação).
+  const ano = new Date().getFullYear();
+
   return (
     <footer>
       <div className="container">
@@ -46,7 +52,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="foot-bot">
-          <div>© 2026 Armazém Auto Peças Ltda.</div>
+          <div>© {ano} Armazém Auto Peças Ltda.</div>
         </div>
       </div>
     </footer>
