@@ -29,6 +29,11 @@ export default function Hero({ cfg, heroLayout, heroImage }) {
 
   return (
     <section className={`hero sec-navy sec-pad ${heroImage === 'dust' ? 'is-dust' : ''}`}>
+      {/* 2026-09-15 (item #8): `priority` foi removido do <Image> abaixo. Ele
+          emitia um preload próprio da foto de 2000w, que o <source> mobile nem
+          usa — o celular baixava ~105 KB à toa. O preload agora é escrito à mão
+          no page.jsx, com `media` casando com o <source> daqui. `loading="eager"`
+          mantém a foto fora do lazy-load, já que ela é o elemento LCP. */}
       <picture>
         <source media="(max-width: 768px)" srcSet={mobileSrc} type="image/webp" />
         <Image
@@ -37,7 +42,7 @@ export default function Hero({ cfg, heroLayout, heroImage }) {
           alt=""
           width={1200}
           height={670}
-          priority
+          loading="eager"
           fetchPriority="high"
           unoptimized
           sizes="100vw"

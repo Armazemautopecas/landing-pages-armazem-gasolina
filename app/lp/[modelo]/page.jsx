@@ -73,6 +73,7 @@ export default async function Page({ params }) {
   const cfg = getCfg(modelo);
   const PAGE_URL = `${SITE_URL}${cfg.seo.canonical_path}`;
   const jsonLd = buildJsonLd(cfg, PAGE_URL, { oemCount: 0 });
+  const HERO_BASE = cfg.hero.foto_static.replace(/\.webp$/, '');
 
   return (
     <>
@@ -81,11 +82,23 @@ export default async function Page({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {/* Preload do hero com breakpoint (item #8): no celular quem pinta é a
+          -600.webp do <picture> do Hero.jsx; precarregar a 2000w ali gastava
+          ~105 KB por visita. `media` aqui casa com o <source> do Hero. */}
       <link
         rel="preload"
         as="image"
-        href={`${cfg.seo.canonical_path}${cfg.hero.foto_static}`}
+        href={`${cfg.seo.canonical_path}${HERO_BASE}-600.webp`}
         type="image/webp"
+        media="(max-width: 768px)"
+        fetchPriority="high"
+      />
+      <link
+        rel="preload"
+        as="image"
+        href={`${cfg.seo.canonical_path}${HERO_BASE}.webp`}
+        type="image/webp"
+        media="(min-width: 769px)"
         fetchPriority="high"
       />
 
