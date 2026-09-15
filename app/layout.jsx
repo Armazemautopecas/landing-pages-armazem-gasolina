@@ -12,9 +12,26 @@ export const metadata = {
   },
 };
 
+// 2026-09-15 (item #16): mesma condição do next.config.mjs — o assetPrefix só
+// aponta pro domínio da Vercel em VERCEL_ENV=production. Só nesse caso o CSS e
+// os chunks vêm de um domínio diferente do HTML, e aí o browser paga DNS + TLS
+// antes de conseguir pintar. O preconnect adianta esse custo (80-300 ms de LCP).
+const ASSET_ORIGIN =
+  process.env.VERCEL_ENV === 'production'
+    ? 'https://landing-pages-armazem-gasolina.vercel.app'
+    : null;
+
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
+      <head>
+        {ASSET_ORIGIN ? (
+          <>
+            <link rel="preconnect" href={ASSET_ORIGIN} crossOrigin="anonymous" />
+            <link rel="dns-prefetch" href={ASSET_ORIGIN} />
+          </>
+        ) : null}
+      </head>
       <body>
         {children}
         {/* Pixel Armazém (Campaign Tracker) — Opção A do Vinicius (2026-05-08).
